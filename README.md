@@ -30,58 +30,58 @@ Now you'll get an error upon deployment which is expected as the point of the ap
 issues that crop up when migrating.
 
     16:09:06,353 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) Starting deployment of "migrate.ear"
-16:09:06,451 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) Starting deployment of "war.war"
-16:09:06,451 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) Starting deployment of "ejb.jar"
-16:09:06,517 INFO  [org.jboss.as.jpa] (MSC service thread 1-1) added javax.persistence.api dependency to migrate.ear
-16:09:06,518 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) added javax.persistence.api dependency to ejb.jar
-16:09:06,519 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) added javax.persistence.api dependency to war.war
-16:09:06,537 INFO  [org.jboss.weld] (MSC service thread 1-3) Processing CDI deployment: migrate.ear
-16:09:06,557 INFO  [org.jboss.weld] (MSC service thread 1-2) Processing CDI deployment: war.war
-16:09:06,560 INFO  [org.jboss.weld] (MSC service thread 1-4) Processing CDI deployment: ejb.jar
-16:09:06,562 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-4) JNDI bindings for session bean named GreeterBean in deployment unit subdeployment "ejb.jar" of deployment "migrate.ear" are as follows:
-
-        java:global/migrate/ejb/GreeterBean!se.rl.migrate.ejb.GreeterRemote
-        java:app/ejb/GreeterBean!se.rl.migrate.ejb.GreeterRemote
-        java:module/GreeterBean!se.rl.migrate.ejb.GreeterRemote
-        java:global/migrate/ejb/GreeterBean!se.rl.migrate.ejb.GreeterLocal
-        java:app/ejb/GreeterBean!se.rl.migrate.ejb.GreeterLocal
-        java:module/GreeterBean!se.rl.migrate.ejb.GreeterLocal
-
-16:09:06,592 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting Services for CDI deployment: migrate.ear
-16:09:06,668 INFO  [org.jboss.weld.Version] (MSC service thread 1-3) WELD-000900 1.1.2 (Final)
-16:09:06,680 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting weld service
-16:09:06,845 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-1) MSC00001: Failed to start service jboss.deployment.subunit."migrate.ear"."ejb.jar".INSTALL: org.jboss.msc.service.StartException in service jboss.deployment.subunit."migrate.ear"."ejb.jar".INSTALL: Failed to process phase INSTALL of subdeployment "ejb.jar" of deployment "migrate.ear"
-        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:121)
-        at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1765)
-        at org.jboss.msc.service.ServiceControllerImpl$ClearTCCLTask.run(ServiceControllerImpl.java:2291)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886) [:1.6.0_26]
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908) [:1.6.0_26]
-        at java.lang.Thread.run(Thread.java:680) [:1.6.0_26]
-Caused by: java.lang.RuntimeException: Error getting reflective information for class se.rl.migrate.ejb.GreeterBean
-        at org.jboss.as.server.deployment.reflect.DeploymentReflectionIndex.getClassIndex(DeploymentReflectionIndex.java:70)
-        at org.jboss.as.ee.component.EEModuleClassDescription$DefaultConfigurator.configure(EEModuleClassDescription.java:163)
-        at org.jboss.as.ee.component.EEClassConfigurationProcessor$1.compute(EEClassConfigurationProcessor.java:134)
-        at org.jboss.as.ee.component.EEClassConfigurationProcessor$1.compute(EEClassConfigurationProcessor.java:114)
-        at org.jboss.as.ee.component.LazyValue.get(LazyValue.java:40)
-        at org.jboss.as.ee.component.EEApplicationDescription.getClassConfiguration(EEApplicationDescription.java:183)
-        at org.jboss.as.ejb3.component.stateless.StatelessComponentDescription.createConfiguration(StatelessComponentDescription.java:76)
-        at org.jboss.as.ee.component.EEModuleConfigurationProcessor.deploy(EEModuleConfigurationProcessor.java:63)
-        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:115)
-        ... 5 more
-Caused by: java.lang.NoClassDefFoundError: Lorg/apache/log4j/Logger;
-        at java.lang.Class.getDeclaredFields0(Native Method) [:1.6.0_26]
-        at java.lang.Class.privateGetDeclaredFields(Class.java:2291) [:1.6.0_26]
-        at java.lang.Class.getDeclaredFields(Class.java:1743) [:1.6.0_26]
-        at org.jboss.as.server.deployment.reflect.ClassReflectionIndex.<init>(ClassReflectionIndex.java:57)
-        at org.jboss.as.server.deployment.reflect.DeploymentReflectionIndex.getClassIndex(DeploymentReflectionIndex.java:66)
-        ... 13 more
-Caused by: java.lang.ClassNotFoundException: org.apache.log4j.Logger from [Module "deployment.migrate.ear.ejb.jar:main" from Service Module Loader]
-        at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:191)
-        at org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:358)
-        at org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:330)
-        at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:307)
-        at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:101)
-        ... 18 more
+    16:09:06,451 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) Starting deployment of "war.war"
+    16:09:06,451 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) Starting deployment of "ejb.jar"
+    16:09:06,517 INFO  [org.jboss.as.jpa] (MSC service thread 1-1) added javax.persistence.api dependency to migrate.ear
+    16:09:06,518 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) added javax.persistence.api dependency to ejb.jar
+    16:09:06,519 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) added javax.persistence.api dependency to war.war
+    16:09:06,537 INFO  [org.jboss.weld] (MSC service thread 1-3) Processing CDI deployment: migrate.ear
+    16:09:06,557 INFO  [org.jboss.weld] (MSC service thread 1-2) Processing CDI deployment: war.war
+    16:09:06,560 INFO  [org.jboss.weld] (MSC service thread 1-4) Processing CDI deployment: ejb.jar
+    16:09:06,562 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-4) JNDI bindings for session bean named GreeterBean in deployment unit subdeployment "ejb.jar" of deployment "migrate.ear" are as follows:
+    
+            java:global/migrate/ejb/GreeterBean!se.rl.migrate.ejb.GreeterRemote
+            java:app/ejb/GreeterBean!se.rl.migrate.ejb.GreeterRemote
+            java:module/GreeterBean!se.rl.migrate.ejb.GreeterRemote
+            java:global/migrate/ejb/GreeterBean!se.rl.migrate.ejb.GreeterLocal
+            java:app/ejb/GreeterBean!se.rl.migrate.ejb.GreeterLocal
+            java:module/GreeterBean!se.rl.migrate.ejb.GreeterLocal
+    
+    16:09:06,592 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting Services for CDI deployment: migrate.ear
+    16:09:06,668 INFO  [org.jboss.weld.Version] (MSC service thread 1-3) WELD-000900 1.1.2 (Final)
+    16:09:06,680 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting weld service
+    16:09:06,845 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-1) MSC00001: Failed to start service jboss.deployment.subunit."migrate.ear"."ejb.jar".INSTALL: org.jboss.msc.service.StartException in service jboss.deployment.subunit."migrate.ear"."ejb.jar".INSTALL: Failed to process phase INSTALL of subdeployment "ejb.jar" of deployment "migrate.ear"
+            at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:121)
+            at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1765)
+            at org.jboss.msc.service.ServiceControllerImpl$ClearTCCLTask.run(ServiceControllerImpl.java:2291)
+            at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886) [:1.6.0_26]
+            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908) [:1.6.0_26]
+            at java.lang.Thread.run(Thread.java:680) [:1.6.0_26]
+    Caused by: java.lang.RuntimeException: Error getting reflective information for class se.rl.migrate.ejb.GreeterBean
+            at org.jboss.as.server.deployment.reflect.DeploymentReflectionIndex.getClassIndex(DeploymentReflectionIndex.java:70)
+            at org.jboss.as.ee.component.EEModuleClassDescription$DefaultConfigurator.configure(EEModuleClassDescription.java:163)
+            at org.jboss.as.ee.component.EEClassConfigurationProcessor$1.compute(EEClassConfigurationProcessor.java:134)
+            at org.jboss.as.ee.component.EEClassConfigurationProcessor$1.compute(EEClassConfigurationProcessor.java:114)
+            at org.jboss.as.ee.component.LazyValue.get(LazyValue.java:40)
+            at org.jboss.as.ee.component.EEApplicationDescription.getClassConfiguration(EEApplicationDescription.java:183)
+            at org.jboss.as.ejb3.component.stateless.StatelessComponentDescription.createConfiguration(StatelessComponentDescription.java:76)
+            at org.jboss.as.ee.component.EEModuleConfigurationProcessor.deploy(EEModuleConfigurationProcessor.java:63)
+            at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:115)
+            ... 5 more
+    Caused by: java.lang.NoClassDefFoundError: Lorg/apache/log4j/Logger;
+            at java.lang.Class.getDeclaredFields0(Native Method) [:1.6.0_26]
+            at java.lang.Class.privateGetDeclaredFields(Class.java:2291) [:1.6.0_26]
+            at java.lang.Class.getDeclaredFields(Class.java:1743) [:1.6.0_26]
+            at org.jboss.as.server.deployment.reflect.ClassReflectionIndex.<init>(ClassReflectionIndex.java:57)
+            at org.jboss.as.server.deployment.reflect.DeploymentReflectionIndex.getClassIndex(DeploymentReflectionIndex.java:66)
+            ... 13 more
+    Caused by: java.lang.ClassNotFoundException: org.apache.log4j.Logger from [Module "deployment.migrate.ear.ejb.jar:main" from Service Module Loader]
+            at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:191)
+            at org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:358)
+            at org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:330)
+            at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:307)
+            at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:101)
+            ... 18 more
         
 What we should notice is this line:
 
