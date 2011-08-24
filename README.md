@@ -131,7 +131,7 @@ Try this out and you'll see that another issue will be exposed:
         at org.jboss.as.ejb3.component.session.SessionInvocationContextInterceptor$CustomSessionInvocationContext.proceed(SessionInvocationContextInterceptor.java:126)
         at org.jboss.ejb3.tx2.impl.CMTTxInterceptor.invokeInCallerTx(CMTTxInterceptor.java:233)
         ... 55 more
-To understand this issue we need to take a look at the [GreetingBean](migrate/src/main/resources/se/rl/migrate/ejb/GreetingBean.java)
+To understand this issue we need to take a look at the [GreetingBean](migrate/src/main/java/se/rl/migrate/ejb/GreetingBean.java)
 Notice how the GreetingBean uses _se.rl.migrate.Version_. This class is packages in a separate jar file and can be found 
 in the root of the migrate.ear. Since this jar is not located in the ear's lib director, which is specified using `libraray_directory`
 element in _META-INF/application.xml AS7 has no knowledge of this class. 
