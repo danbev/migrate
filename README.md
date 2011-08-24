@@ -1,21 +1,26 @@
-## Migrate to AS7
+# Migrate to AS7
 This project contains a sample application with various issues that you can run into when migrating an 
 existing application to JBoss AS 7. 
-The sample application, an ear, is deployed to AS7 and issues will crop up which will be fixed step by step
-until finally the application can be deployed an run. 
+The sample application, an ear, is deployed to AS7 and issues will crop up which will be fixed step by step,
+until the application can be deployed and run. 
 
-# Overview of the migrate application
+## Overview of the migrate application
 The application is an enterprice application archive and contains a ejb and a war. There is also a "normal" jar that 
 contains code that is used from the ejb jar. 
 
-# Building
+
+## Building
 To build the application execute the following command from the root of the project:
 
-    gradle ear
+    ./gradlew ear
+or on windows:
+
+    gradlew.bat ear
+    
     
 The artifact produced will be located in _target/libs_.
 
-# Deploying
+## Deploying
 There are various ways to deploy to JBoss AS7, CLI, Web Console, API, file system. For this example we will be using
 the file system deploy method. 
 First, start JBoss AS 7:
@@ -92,7 +97,7 @@ This can be accomplished by setting a manifest header. Open _ejb/build.gradle_ a
 	attributes 'Dependencies': 'org.apache.log4j'
 Now, rebuild the ear and redploy it. It should now deploy successfully.
 
-# Running the application
+## Running the application
 After successfully deploying migrate.ear as explained in the previous section we are now ready to run the app. 
 Open a web browser and open the following url; http://localhost:8080/war
 
@@ -131,7 +136,7 @@ Try this out and you'll see that another issue will be exposed:
         at org.jboss.as.ejb3.component.session.SessionInvocationContextInterceptor$CustomSessionInvocationContext.proceed(SessionInvocationContextInterceptor.java:126)
         at org.jboss.ejb3.tx2.impl.CMTTxInterceptor.invokeInCallerTx(CMTTxInterceptor.java:233)
         ... 55 more
-To understand this issue we need to take a look at the [GreetingBean](migrate/blob/master/ejb/src/main/java/se/rl/migrate/ejb/GreeterBean.java)
+To understand this issue we need to take a look at the [GreeterBean](migrate/blob/master/ejb/src/main/java/se/rl/migrate/ejb/GreeterBean.java).
 Notice how the GreetingBean uses _se.rl.migrate.Version_. This class is packages in a separate jar file and can be found 
 in the root of the migrate.ear. Since this jar is not located in the ear's lib director, which is specified using `libraray_directory`
 element in _META-INF/application.xml AS7 has no knowledge of this class. 
