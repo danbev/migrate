@@ -1,0 +1,17 @@
+apply plugin: 'ear'
+apply plugin: 'java'
+
+dependencies {
+    deploy project(':war')
+    deploy project(':ejb')
+    deploy project(':version')
+}
+
+allprojects {
+    apply plugin: 'eclipse'
+
+    buildDir = 'target'
+    repositories {
+        mavenCentral()
+    }
+}

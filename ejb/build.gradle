@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+hornetq_version = '2.2.5.Final' 
+
+dependencies {
+    compile 'javax.ejb:ejb-api:3.0'
+    compile 'javax.jms:jms:1.1'
+    compile 'log4j:log4j:1.2.16'
+    compile 'org.jboss.ejb3:jboss-ejb3-ext-api:2.0.0-beta-1'
+    compile project(':version')
+
+    testCompile "org.hornetq:hornetq-core-client:$hornetq_version"
+    testCompile "org.jboss.netty:netty:3.2.1.Final"
+}
+
+jar {
+    manifest {
+        // 1. Enable the Dependencies attribute to fix deployment error: Caused by: java.lang.NoClassDefFoundError: Lorg/apache/log4j/Logger;
+        attributes 'Dependencies': 'org.apache.log4j'
+        // 2. Enable this ejb to have access to a the version.jar
+        attributes 'Class-Path': "version.jar"
+    }
+}
+
+repositories {
+    mavenRepo urls: ['https://repository.jboss.org/nexus/content/groups/public/']
+}
