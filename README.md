@@ -138,11 +138,11 @@ Try this out and you'll see that another issue will be exposed:
         ... 55 more
 To understand this issue we need to take a look at the [GreeterBean](migrate/blob/master/ejb/src/main/java/se/rl/migrate/ejb/GreeterBean.java).
 Notice how the GreetingBean uses _se.rl.migrate.Version_. This class is packages in a separate jar file and can be found 
-in the root of the migrate.ear. Since this jar is not located in the ear's lib director, which is specified using `libraray_directory`
-element in _META-INF/application.xml AS7 has no knowledge of this class. 
+in the root of the migrate.ear. Since this jar is not located in the ear's lib director, which is specified using 'library_directory'
+element in _META-INF/application.xml_, AS7 has no knowledge of this class. 
 To make AS7, and other containers for that matter, aware of this class we need to update the ejb.jar's MANIFEST.
 
-Again, open ejb/build.gradle and uncomment:
+Again, open _ejb/build.gradle_ and uncomment:
 
 	attributes 'Class-Path': "version.jar"
 Now, rebuild and deploy the application. Then retry entering a name and pressing the send button. 
