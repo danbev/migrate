@@ -1,5 +1,6 @@
 package se.rl.migrate.mdb;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
@@ -9,6 +10,7 @@ import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 import se.rl.migrate.ejb.GreeterLocal;
+import se.rl.util.SomeUtil;
 
 @MessageDriven(name = "GreeterMDB", 
     activationConfig = { 
@@ -18,6 +20,11 @@ public class GreeterMDB implements MessageListener {
     
     @EJB 
     private GreeterLocal greeter;
+    
+    @PostConstruct
+    public void logConstruction() {
+        SomeUtil.logMessage("Initializing GreeterMDB");
+    }
 
     public void onMessage(final Message message) {
         if (message instanceof TextMessage) {

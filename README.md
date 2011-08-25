@@ -31,6 +31,7 @@ Next, deploy the migrate.ear:
 
     cp target/lib/migrate.ear /path/to/as7/standalone/deployments
     
+### Step 1: Dependency upon pre-installed module
 Now you'll get an error upon deployment which is expected as the point of the application is to show different
 issues that crop up when migrating.
 
@@ -97,7 +98,7 @@ This can be accomplished by setting a manifest header. Open _ejb/build.gradle_ a
 	attributes 'Dependencies': 'org.apache.log4j'
 Now, rebuild the ear and redploy it. It should now deploy successfully.
 
-## Running the application
+### Step 2: Dependency upon custom module
 After successfully deploying migrate.ear as explained in the previous section we are now ready to run the app. 
 Open a web browser and open the following url; http://localhost:8080/war
 
@@ -105,6 +106,38 @@ The page presented is a very simple jsp page with a input form. The idea is that
 In the background the name you entered will be sent to a JMS Queue named _GreetingQueue_. A Message Driven Bean is listening
 to this queue and will be triggered.
 Try this out and you'll see that another issue will be exposed:
+
+    09:56:55,000 ERROR [org.hornetq.ra.inflow.HornetQMessageHandler] (Thread-7 (group:HornetQ-client-global-threads-479435515)) Failed to deliver message: java.lang.NoClassDefFoundError: se/rl/util/SomeUtil
+        at se.rl.migrate.mdb.GreeterMDB.logConstruction(GreeterMDB.java:26)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [:1.6.0_26]
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) [:1.6.0_26]
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) [:1.6.0_26]
+        at java.lang.reflect.Method.invoke(Method.java:597) [:1.6.0_26]
+        at org.jboss.as.ee.component.ManagedReferenceLifecycleMethodInterceptor.processInvocation(ManagedReferenceLifecycleMethodInterceptor.java:69)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:287)
+        at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:287)
+        at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:73)
+From the stacktrace we can see that the error is being thrown from GreeterMDB's logConstruction method. This method is using a class named SomeUtil which is not packaged in the jar file. So, could
+we fix this issue the same way as we did for the previous one. Well, it turns out we can but for this to work we need to create a module for it. This was not required by the previous task because
+log4j is a pre-installed module that is shipped with JBoss AS7. Our use case here is that we have a utility jar that multiple applications can use, not only our migrate.ear. So lets install a custom
+module.
+
+First we need to build the _module_ project:
+
+    ./gradlew mod
+This command will produce a directory named _user-modules_ in the _target_ directory. Copy this directory to your servers home directory:
+
+    cp -r user-module /path/to/as7
+The last thing to do is to make AS7 aware of this custom modules directory. You may have noticed that there is directory named _modules_ in the servers home directory. This is where all the pre-installedmodules that are shipped with the server are stored. To avoid mixing our custom modules and make upgrading easier we will use a different directory. To accomplish this we need to update the standalone.sh or standalone.bat file:
+
+     -mp \"$JBOSS_HOME/modules\":\"$JBOSS_HOME/user-modules\" \
+Now we only need to add this dependency to our ejb project. Open _ejb/build.gradle_ and 'se.rl.util:1.0' as a dependency:
+
+    attributes 'Dependencies': 'org.apache.log4j,se.rl.util:1.0'
+
+### Step 3. Dependency on jar in deployment archive
+Re-build and deploy migrate.ear and re-run the application again. The following error will be displayed:
 
     Caused by: java.lang.NoClassDefFoundError: se/rl/migrate/Version
         at se.rl.migrate.ejb.GreeterBean.greet(GreeterBean.java:14)
@@ -137,8 +170,8 @@ Try this out and you'll see that another issue will be exposed:
         at org.jboss.ejb3.tx2.impl.CMTTxInterceptor.invokeInCallerTx(CMTTxInterceptor.java:233)
         ... 55 more
 To understand this issue we need to take a look at the [GreeterBean](migrate/blob/master/ejb/src/main/java/se/rl/migrate/ejb/GreeterBean.java).
-Notice how the GreetingBean uses _se.rl.migrate.Version_. This class is packages in a separate jar file and can be found 
-in the root of the migrate.ear. Since this jar is not located in the ear's lib director, which is specified using 'library_directory'
+Notice how the GreetingBean uses _se.rl.migrate.Version_. This class is packaged in a separate jar file and can be found 
+in the root of migrate.ear. Since this jar is not located in the ear's lib director, which is specified using 'library_directory'
 element in _META-INF/application.xml_, AS7 has no knowledge of this class. 
 To make AS7, and other containers for that matter, aware of this class we need to update the ejb.jar's MANIFEST.
 
