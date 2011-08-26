@@ -25,7 +25,7 @@ or on windows:
 The artifact produced will be located in _target/libs_.
 
 ## Deploying
-There are various ways to deploy to JBoss AS7, CLI, Web Console, API, file system. 
+There are various ways to deploy to JBoss AS7, Command Line Interface (CLI), Web Console (HTTP API), Java API, file system deployment. 
 For this example we will be using the file system deploy method. 
 
 But first, we need to start JBoss AS 7:
@@ -36,6 +36,23 @@ Next, deploy the migrate.ear:
 
     cp target/lib/migrate.ear /path/to/as7/standalone/deployments
     
+### Deploying the JMS queue
+This example application uses a JMS queue which needs to added to AS7. In previous versions of JBoss AS one could package a queue definition file
+with the deployment and it would be deployed with the application. The example application does contain such a file but this is when for deploying
+to earlier versions of JBoss AS. 
+To deploy a JMS queue you can use any of the management interfaces available. This example will use the HTTP API.
+
+Change into the _management_ directory and run the [addqueue](migrate/blob/master/management/build.gradle) command:
+
+    ./gradlew addqueue -q
+    {"outcome":"success"}
+
+    BUILD SUCCESSFUL
+If you check the server console log you will see the following:
+    
+    INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) trying to deploy queue jms.queue.GreeterQueue
+    INFO  [org.jboss.as.messaging.jms.AS7BindingRegistry] (MSC service thread 1-1) Bound messaging object to jndi name java:/queue/GreeterQueue
+ 
 ### Step 1: Dependency upon pre-installed module
 Now you'll get an error upon deployment which is expected as the point of the application is to show different
 issues that crop up when migrating.
