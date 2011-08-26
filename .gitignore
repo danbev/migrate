@@ -1,0 +1,17 @@
+# ignore .svn metadata files
+# ignore Maven generated target folders
+target
+# ignore eclipse files
+.project
+.classpath
+.settings
+# ignore IDEA files
+*.iml
+*.ipr
+*.iws
+.idea
+bin
+runner
+.gradle
+build
+.gitignore

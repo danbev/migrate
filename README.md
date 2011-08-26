@@ -23,7 +23,8 @@ The artifact produced will be located in _target/libs_.
 ## Deploying
 There are various ways to deploy to JBoss AS7, CLI, Web Console, API, file system. For this example we will be using
 the file system deploy method. 
-First, start JBoss AS 7:
+
+But first, we need to start JBoss AS 7:
 
     ./standalone.sh --server-config=standalone-preview.xml
     
@@ -93,7 +94,7 @@ What we should notice is this line:
 
     Caused by: java.lang.ClassNotFoundException: org.apache.log4j.Logger from [Module "deployment.migrate.ear.ejb.jar:main" from Service Module Loader]
 What this indicates is that with AS7 and its modularity we need to explicitely state that our application uses log4j.
-This can be accomplished by setting a manifest header. Open _ejb/build.gradle_ and uncomment:
+Since logj4 is a module that is shipped with AS7 we can be accomplished by setting a manifest header. Open _ejb/build.gradle_ and uncomment:
 
 	attributes 'Dependencies': 'org.apache.log4j'
 Now, rebuild the ear and redploy it. It should now deploy successfully.
@@ -118,7 +119,8 @@ Try this out and you'll see that another issue will be exposed:
         at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53)
         at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:287)
         at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:73)
-From the stacktrace we can see that the error is being thrown from GreeterMDB's logConstruction method. This method is using a class named SomeUtil which is not packaged in the jar file. So, could
+From the stacktrace we can see that the error is being thrown from [GreeterMDB](migrate/blob/master/ejb/src/main/java/se/rl/migrate/ejb/GreeterMDB.java)'s
+logConstruction method. This method is using a class named [SomeUtil](migrate/blob/master/src/main/java/se/rl/util/SomeUtil.java) which is not packaged in the jar file. So, could
 we fix this issue the same way as we did for the previous one. Well, it turns out we can but for this to work we need to create a module for it. This was not required by the previous task because
 log4j is a pre-installed module that is shipped with JBoss AS7. Our use case here is that we have a utility jar that multiple applications can use, not only our migrate.ear. So lets install a custom
 module.
@@ -135,6 +137,11 @@ The last thing to do is to make AS7 aware of this custom modules directory. You 
 Now we only need to add this dependency to our ejb project. Open _ejb/build.gradle_ and 'se.rl.util:1.0' as a dependency:
 
     attributes 'Dependencies': 'org.apache.log4j,se.rl.util:1.0'
+    
+Creating a custom module as explained above is great if you have multiple applications that use the same module. The downside to this
+is that you have to maintain this and the modules have to be available of all installations if you are running in a cluster.
+With AS7 you also have the option to configure a module with a deployment. You can package a (META-INF/jboss-deployment-structure.xml)[migrate/blob/master/src/main/application/META-INF/jboss-deployment-structure.xml) 
+with your deployments toplevel META-INF directory and the module will be added upon deployment. 
 
 ### Step 3. Dependency on jar in deployment archive
 Re-build and deploy migrate.ear and re-run the application again. The following error will be displayed:
