@@ -5,8 +5,12 @@ The sample application, an ear, is deployed to AS7 and issues will crop up which
 until the application can be deployed and run. 
 
 ## Overview of the migrate application
-The application is an enterprice application archive and contains a ejb and a war. There is also a "normal" jar that 
-contains code that is used from the ejb jar. 
+The application is an enterprice application archive and contains an EJB, an MDB and a WAR. 
+
+The entry point to the application is via a jsp presented which contains a very simple input form. 
+The idea is that you enter your name and hit the send button. In the background the name you entered will be sent to a 
+JMS Queue named _GreetingQueue_. An MDB is listening to this queue and will be triggered. The MDB will in turn invoke
+the EJB with the content of the JMS Message.
 
 
 ## Building
@@ -21,8 +25,8 @@ or on windows:
 The artifact produced will be located in _target/libs_.
 
 ## Deploying
-There are various ways to deploy to JBoss AS7, CLI, Web Console, API, file system. For this example we will be using
-the file system deploy method. 
+There are various ways to deploy to JBoss AS7, CLI, Web Console, API, file system. 
+For this example we will be using the file system deploy method. 
 
 But first, we need to start JBoss AS 7:
 
@@ -119,8 +123,8 @@ Try this out and you'll see that another issue will be exposed:
         at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53)
         at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:287)
         at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:73)
-From the stacktrace we can see that the error is being thrown from [GreeterMDB](migrate/blob/master/ejb/src/main/java/se/rl/migrate/ejb/GreeterMDB.java)'s
-logConstruction method. This method is using a class named [SomeUtil](migrate/blob/master/src/main/java/se/rl/util/SomeUtil.java) which is not packaged in the jar file. So, could
+From the stacktrace we can see that the error is being thrown from [GreeterMDB](migrate/blob/master/ejb/src/main/java/se/rl/migrate/mdb/GreeterMDB.java)'s
+logConstruction method. This method is using a class named [SomeUtil](migrate/blob/master/module/src/main/java/se/rl/util/SomeUtil.java) which is not packaged in the jar file. So, could
 we fix this issue the same way as we did for the previous one. Well, it turns out we can but for this to work we need to create a module for it. This was not required by the previous task because
 log4j is a pre-installed module that is shipped with JBoss AS7. Our use case here is that we have a utility jar that multiple applications can use, not only our migrate.ear. So lets install a custom
 module.
