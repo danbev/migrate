@@ -166,9 +166,24 @@ Now we only need to add this dependency to our ejb project. Open _ejb/build.grad
     
 Creating a custom module as explained above is great if you have multiple applications that use the same module. The downside to this
 is that you have to maintain this directory structure and the modules have to be available of all installations if you are running in a cluster.
-With AS7 you also have the option to configure a module with a deployment. You can package a (META-INF/jboss-deployment-structure.xml)[migrate/blob/master/src/main/application/META-INF/jboss-deployment-structure.xml) 
-with your deployments toplevel META-INF directory and the module will be added upon deployment. Notice how the name of such a module is prefixed with _deployment_ which means
+
+## Step 2b: Alternatively adding a module as a deployment
+With AS7 you also have the option to configure a module with a deployment. You can package a (META-INF/jboss-deployment-structure.xml)[migrate/blob/master/module/src/main/resources/META-INF/jboss-deployment-structure.xml) 
+with your deployment or as a separate deployment. Notice how the name of such a module is prefixed with _deployment_ which means
 that you'll have to update you dependencis manifest headers.
+To try this out we need to revert the change to _standalone.sh_ and remove the _user-modules_ directory that we added. It should now looks like it did from the start:
+
+    -mp \"$JBOSS_HOME/modules\" \
+Next, we need to deploy our module. The jar file that the _module_ project produces is a valid module deployment so simply deploying 
+to the server is enough to enable this module:
+
+    cp module/target/libs/util-1.0-SNAPSHOT.jar /path/to/as7/standalone/deployments/
+    
+Next, we have to update the dependency manifest header in _ejb/build.gradle_ to depend on a deployable module:
+
+    attributes 'Dependencies': 'org.apache.log4j, deployment.se.rl.util:1.0'
+Now redeploy migrate.ear and re-run the application. 
+    
 
 # Step 3. Dependency on jar in deployment archive
 Re-build and deploy migrate.ear and re-run the application again. The following error will be displayed:
