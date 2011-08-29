@@ -9,7 +9,23 @@ dependencies {
     compile "log4j:log4j:1.2.16"
 }
 
+sourceSets {
+    main { 
+        resources {
+            exclude '**/module.xml'
+        }
+    }
+}
+
 task mod(dependsOn: build) << {
+    createUserModule()
+}
+
+build.doLast( {
+    createUserModule()
+})
+
+def createUserModule() {
     copy {
         from('src/main/resources/module.xml')
         from('target/libs/util-1.0-SNAPSHOT.jar')

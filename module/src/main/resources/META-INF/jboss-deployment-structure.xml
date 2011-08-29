@@ -1,0 +1,7 @@
+<jboss-deployment-structure>
+    <module name="deployment.se.rl.util" slot="1.0" >
+        <resources>
+            <resource-root path="."/>
+        </resources>
+    </module>
+</jboss-deployment-structure>

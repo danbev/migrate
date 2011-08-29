@@ -24,18 +24,23 @@ or on windows:
     
 The artifact produced will be located in _target/libs_.
 
-## Deploying
-There are various ways to deploy to JBoss AS7, Command Line Interface (CLI), Web Console (HTTP API), Java API, file system deployment. 
-For this example we will be using the file system deploy method. 
-
-But first, we need to start JBoss AS 7:
+## Starting AS7
 
     ./standalone.sh --server-config=standalone-preview.xml
     
-Next, deploy the migrate.ear:
+
+## Deploying
+There are various ways to deploy to JBoss AS7: 
+
+* Command Line Interface (CLI) 
+* Web Console (HTTP API) 
+* Java API 
+* File system deployment 
+
+For this example we will be using the file system deploy method. 
 
     cp target/lib/migrate.ear /path/to/as7/standalone/deployments
-    
+
 ### Deploying the JMS queue
 This example application uses a JMS queue which needs to added to AS7. In previous versions of JBoss AS one could package a queue definition file
 with the deployment and it would be deployed with the application. The example application does contain such a file but this is when for deploying
@@ -53,7 +58,7 @@ If you check the server console log you will see the following:
     INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) trying to deploy queue jms.queue.GreeterQueue
     INFO  [org.jboss.as.messaging.jms.AS7BindingRegistry] (MSC service thread 1-1) Bound messaging object to jndi name java:/queue/GreeterQueue
  
-### Step 1: Dependency upon pre-installed module
+# Step 1: Dependency upon pre-installed module
 Now you'll get an error upon deployment which is expected as the point of the application is to show different
 issues that crop up when migrating.
 
@@ -120,7 +125,7 @@ Since logj4 is a module that is shipped with AS7 we can be accomplished by setti
 	attributes 'Dependencies': 'org.apache.log4j'
 Now, rebuild the ear and redploy it. It should now deploy successfully.
 
-### Step 2: Dependency upon custom module
+# Step 2: Dependency upon custom module
 After successfully deploying migrate.ear as explained in the previous section we are now ready to run the app. 
 Open a web browser and open the following url; http://localhost:8080/war
 
@@ -160,11 +165,12 @@ Now we only need to add this dependency to our ejb project. Open _ejb/build.grad
     attributes 'Dependencies': 'org.apache.log4j,se.rl.util:1.0'
     
 Creating a custom module as explained above is great if you have multiple applications that use the same module. The downside to this
-is that you have to maintain this and the modules have to be available of all installations if you are running in a cluster.
+is that you have to maintain this directory structure and the modules have to be available of all installations if you are running in a cluster.
 With AS7 you also have the option to configure a module with a deployment. You can package a (META-INF/jboss-deployment-structure.xml)[migrate/blob/master/src/main/application/META-INF/jboss-deployment-structure.xml) 
-with your deployments toplevel META-INF directory and the module will be added upon deployment. 
+with your deployments toplevel META-INF directory and the module will be added upon deployment. Notice how the name of such a module is prefixed with _deployment_ which means
+that you'll have to update you dependencis manifest headers.
 
-### Step 3. Dependency on jar in deployment archive
+# Step 3. Dependency on jar in deployment archive
 Re-build and deploy migrate.ear and re-run the application again. The following error will be displayed:
 
     Caused by: java.lang.NoClassDefFoundError: se/rl/migrate/Version
