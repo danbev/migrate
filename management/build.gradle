@@ -14,43 +14,33 @@ import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.Method
 import static groovyx.net.http.ContentType.JSON
 
-def http = new HTTPBuilder('http://localhost:9990/management/')
-
-task ('add-queue') << {
+task ('add-queue', description: "Adds a JMS Queue to AS7 using the HTTP API") << {
     def queue = 'GreeterQueue'
-    try {
-        http.request(Method.valueOf("POST"), JSON) {
-            body = [operation: "add", address: ['subsystem', 'messaging', 'jms-queue', queue], entries:['queue/' + queue]]
-
-            response.success = {resp, json ->
-                println(json)
-            }
-        }
-    } catch (org.apache.http.client.HttpResponseException e) {
-        if(e.getStatusCode()==500) {
-            throw new GradleException('The server returned a 500 error(Internal Server Error). Perhaps the queue already exists? Please check the server console log for details')
-        }
-    }
+    managementTask([operation: "add", address: ['subsystem', 'messaging', 'jms-queue', queue], entries:['queue/' + queue]])
 }
 
-task ('add-ds') << {
+task ('add-ds', description:"Adds a data source named to AS7 using the HTTP API") << {
     def dsname = 'MigrateDS'
+    managementTask([operation: "add", 
+            address: ['subsystem', 'datasources', 'data-source', dsname],
+            'jndi-name': 'java:jboss/datasources/' + dsname, 
+            'pool-name': 'MigrateDS',
+            'driver-name': 'h2', 
+            'connection-url': 'jdbc:h2:mem:test;DB_CLOSE_DELAY=-1'])
+}
+
+def managementTask(Map op) {
+    def http = new HTTPBuilder('http://localhost:9990/management/')
     try {
         http.request(Method.valueOf("POST"), JSON) {
-            body = [operation: "add", 
-                    address: ['subsystem', 'datasources', 'data-source', dsname],
-                    'jndi-name': 'java:jboss/datasources/' + dsname, 
-                    'pool-name': 'MigrateDS',
-                    'driver-name': 'h2', 
-                    'connection-url': 'jdbc:h2:mem:test;DB_CLOSE_DELAY=-1']
-
+            body = op
             response.success = {resp, json ->
                 println(json)
             }
         }
     } catch (org.apache.http.client.HttpResponseException e) {
         if(e.getStatusCode()==500) {
-            throw new GradleException('The server returned a 500 error(Internal Server Error). Perhaps the data source already exists? Please check the server console log for details')
+            throw new GradleException('The server returned a 500 error(Internal Server Error). Perhaps the resource already exists? Please check the server console log for details')
         }
     }
 }

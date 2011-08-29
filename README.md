@@ -39,10 +39,10 @@ There are various ways to deploy to JBoss AS7:
 
 
 ### Deploying the JMS queue
-This example application uses a JMS queue which needs to added to AS7. In previous versions of JBoss AS one could package a queue definition file
+The example application uses a JMS queue which needs to added to AS7. In previous versions of JBoss AS one could package a queue definition file
 with the deployment and it would be deployed with the application. With AS7 JMS destinations (queues and topics)
 are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a JMS destination using 
-any of the administration consoles. We will demonstrate two alteranative in this here, CLI and HTTP API
+any of the administration consoles. We will demonstrate two alternatives here, CLI and HTTP API
 Example using the CLI:
 
     [standalone@localhost:9999 /] /subsystem=messaging/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
@@ -58,9 +58,9 @@ If you check the server console log you will see the following:
     INFO  [org.jboss.as.messaging.jms.AS7BindingRegistry] (MSC service thread 1-1) Bound messaging object to jndi name java:/queue/GreeterQueue
     
 ### Deploying a DataSource
-This example application uses entity beans to persist data and hence requires a data source to be installed. With AS7 datasources
+The example application uses entity beans to persist data and hence requires a data source to be installed. With AS7 datasources
 are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a data source using any of the
-administration consoles. We will demonstrate two alteranative in this here, CLI and HTTP API
+administration consoles. We will demonstrate two alternatives here, CLI and HTTP API
 
 Example using the CLI:
 
