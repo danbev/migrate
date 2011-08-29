@@ -37,9 +37,6 @@ There are various ways to deploy to JBoss AS7:
 * Java API 
 * File system deployment 
 
-For this example we will be using the file system deploy method. 
-
-    cp target/lib/migrate.ear /path/to/as7/standalone/deployments
 
 ### Deploying the JMS queue
 This example application uses a JMS queue which needs to added to AS7. In previous versions of JBoss AS one could package a queue definition file
@@ -78,6 +75,17 @@ Change into the _management_ directory and run the [addqueue](migrate/blob/maste
 If you check the server console log you will see the following:
 
     INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) Bound data source [java:jboss/datasources/MigrateDS2]
+    
+    
+### Deploying the ear
+Deploying using the file system:
+
+    cp target/lib/migrate.ear /path/to/as7/standalone/deployments
+    
+Deploying using CLI:
+
+    [standalone@localhost:9999 /] deploy --force /path/to/migrate/target/libs/migrate.ear
+The _--force_ option is specified to redeploy the application if it was already deployed.
  
 # Step 1: Dependency upon pre-installed module
 Now you'll get an error upon deployment which is expected as the point of the application is to show different
