@@ -13,15 +13,15 @@ dependencies {
 jar {
     manifest {
         // 1. Enable the Dependencies attribute to fix deployment error: Caused by: java.lang.NoClassDefFoundError: Lorg/apache/log4j/Logger;
-        attributes 'Dependencies': 'org.apache.log4j'
+        //attributes 'Dependencies': 'org.apache.log4j'
 
         // 2 a) Enable this ejb to have access to the custom module 'se.rl.util' version '1.0'
         //attributes 'Dependencies': 'org.apache.log4j, se.rl.util:1.0'
         //   b) Alternatively this ejb to have access to the custom deployable module 'deployment.se.rl.util' version '1.0'
-        attributes 'Dependencies': 'org.apache.log4j, deployment.se.rl.util:1.0'
+        //attributes 'Dependencies': 'org.apache.log4j, deployment.se.rl.util:1.0'
 
         // 3 a. Enable this ejb to have access to a the version.jar
-        attributes 'Class-Path': 'version.jar'
+        //attributes 'Class-Path': 'version.jar'
     }
 }
 
