@@ -35,7 +35,7 @@ There are various ways to deploy to JBoss AS7:
 * Command Line Interface (CLI) 
 * Web Console (HTTP API) 
 * Java API 
-* File system deployment 
+* File system deployment scanner
 
 
 ### Deploying the JMS queue
@@ -67,7 +67,7 @@ Example using the CLI:
     /subsystem=datasources/data-source=MigrateDS:add(jndi-name=java:jboss/datasources/MigrateDS, pool-name=MigrateDS, driver-name=h2, connection-url=jdbc:h2:mem:test;DB_CLOSE_DELAY=-1)
     
 Example using the HTTP API:
-Change into the _management_ directory and run the [addqueue](migrate/blob/master/management/build.gradle) command:
+Change into the _management_ directory and run the [add-ds](migrate/blob/master/management/build.gradle) command:
 
     ./gradlew add-ds 
     
@@ -86,6 +86,15 @@ Deploying using CLI:
 
     [standalone@localhost:9999 /] deploy --force /path/to/migrate/target/libs/migrate.ear
 The _--force_ option is specified to redeploy the application if it was already deployed.
+
+As an alternative method of deploying you can add another directory that the deployment scanner will scan:
+
+    [standalone@localhost:9999 /] /subsystem=deployment-scanner/scanner=user:add(path=/path/to/migrate/target/libs/)  
+With this in place the application will be deployed automatically after building. 
+If you find this annoying when playing with the app just remove the added scanner:
+
+    [standalone@localhost:9999 /] /subsystem=deployment-scanner/scanner=user:remove                                                              
+    
  
 # Step 1: Dependency upon pre-installed module
 Now you'll get an error upon deployment which is expected as the point of the application is to show different
