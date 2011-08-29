@@ -1,10 +1,8 @@
 apply plugin: 'java'
 
 dependencies {
-    compile 'javax.ejb:ejb-api:3.0'
-    compile 'javax.jms:jms:1.1'
+    compile 'javax:javaee-api:6.0'
     compile 'log4j:log4j:1.2.16'
-    compile 'org.jboss.ejb3:jboss-ejb3-ext-api:2.0.0-beta-1'
     compile project(':version')
     compile project(':module')
 
@@ -15,15 +13,15 @@ dependencies {
 jar {
     manifest {
         // 1. Enable the Dependencies attribute to fix deployment error: Caused by: java.lang.NoClassDefFoundError: Lorg/apache/log4j/Logger;
-        //attributes 'Dependencies': 'org.apache.log4j'
+        attributes 'Dependencies': 'org.apache.log4j'
 
         // 2 a) Enable this ejb to have access to the custom module 'se.rl.util' version '1.0'
         //attributes 'Dependencies': 'org.apache.log4j, se.rl.util:1.0'
         //   b) Alternatively this ejb to have access to the custom deployable module 'deployment.se.rl.util' version '1.0'
-        //attributes 'Dependencies': 'org.apache.log4j, deployment.se.rl.util:1.0'
+        attributes 'Dependencies': 'org.apache.log4j, deployment.se.rl.util:1.0'
 
         // 3 a. Enable this ejb to have access to a the version.jar
-        //attributes 'Class-Path': 'version.jar'
+        attributes 'Class-Path': 'version.jar'
     }
 }
 
