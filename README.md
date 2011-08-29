@@ -48,9 +48,9 @@ Example using the CLI:
     [standalone@localhost:9999 /] /subsystem=messaging/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
 
 Example using the HTTP API:
-Change into the _management_ directory and run the [addqueue](migrate/blob/master/management/build.gradle) command:
+Change into the _management_ directory and run the [add-queue](migrate/blob/master/management/build.gradle) command:
 
-    ./gradlew queue -q
+    ./gradlew add-queue 
 
 If you check the server console log you will see the following:
     
@@ -69,7 +69,7 @@ Example using the CLI:
 Example using the HTTP API:
 Change into the _management_ directory and run the [addqueue](migrate/blob/master/management/build.gradle) command:
 
-    ./gradlew datasource -q
+    ./gradlew add-ds 
     
     
 If you check the server console log you will see the following:
