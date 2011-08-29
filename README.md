@@ -43,20 +43,41 @@ For this example we will be using the file system deploy method.
 
 ### Deploying the JMS queue
 This example application uses a JMS queue which needs to added to AS7. In previous versions of JBoss AS one could package a queue definition file
-with the deployment and it would be deployed with the application. The example application does contain such a file but this is when for deploying
-to earlier versions of JBoss AS. 
-To deploy a JMS queue you can use any of the management interfaces available. This example will use the HTTP API.
+with the deployment and it would be deployed with the application. With AS7 JMS destinations (queues and topics)
+are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a JMS destination using 
+any of the administration consoles. We will demonstrate two alteranative in this here, CLI and HTTP API
+Example using the CLI:
 
+    [standalone@localhost:9999 /] /subsystem=messaging/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
+
+Example using the HTTP API:
 Change into the _management_ directory and run the [addqueue](migrate/blob/master/management/build.gradle) command:
 
-    ./gradlew addqueue -q
-    {"outcome":"success"}
+    ./gradlew queue -q
 
-    BUILD SUCCESSFUL
 If you check the server console log you will see the following:
     
     INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) trying to deploy queue jms.queue.GreeterQueue
     INFO  [org.jboss.as.messaging.jms.AS7BindingRegistry] (MSC service thread 1-1) Bound messaging object to jndi name java:/queue/GreeterQueue
+    
+### Deploying a DataSource
+This example application uses entity beans to persist data and hence requires a data source to be installed. With AS7 datasources
+are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a data source using any of the
+administration consoles. We will demonstrate two alteranative in this here, CLI and HTTP API
+
+Example using the CLI:
+
+    /subsystem=datasources/data-source=MigrateDS:add(jndi-name=java:jboss/datasources/MigrateDS, pool-name=MigrateDS, driver-name=h2, connection-url=jdbc:h2:mem:test;DB_CLOSE_DELAY=-1)
+    
+Example using the HTTP API:
+Change into the _management_ directory and run the [addqueue](migrate/blob/master/management/build.gradle) command:
+
+    ./gradlew datasource -q
+    
+    
+If you check the server console log you will see the following:
+
+    INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) Bound data source [java:jboss/datasources/MigrateDS2]
  
 # Step 1: Dependency upon pre-installed module
 Now you'll get an error upon deployment which is expected as the point of the application is to show different

@@ -18,7 +18,8 @@ import se.rl.util.SomeUtil;
         @ActivationConfigProperty(propertyName = "destination", propertyValue = "queue/GreeterQueue")})
 public class GreeterMDB implements MessageListener {
     
-    @EJB 
+    //@EJB (lookup="migrate/GreeterBean/local")
+    @EJB (lookup="java:module/GreeterBean!se.rl.migrate.ejb.GreeterLocal")
     private GreeterLocal greeter;
     
     @PostConstruct

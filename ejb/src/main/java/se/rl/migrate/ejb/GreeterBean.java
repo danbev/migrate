@@ -5,7 +5,7 @@ import org.apache.log4j.*;
 
 import se.rl.migrate.Version;
 
-@Stateless
+@Stateless 
 public class GreeterBean implements GreeterLocal, GreeterRemote {
     
     private Logger log = Logger.getLogger(GreeterBean.class);
