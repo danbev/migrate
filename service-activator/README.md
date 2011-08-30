@@ -6,7 +6,7 @@ a similar service was used with an older version of JBoss AS and needs to be mig
 ## What to look for in this example
 
 ### META-INF/services/org.jboss.msc.service.ServiceActivator
-This is the [file](migrate/blob/master/service-activator/src/main/resources/META-INF/org.jboss.msc.service.ServiceActivator) that AS7 will scan for and call the activate method of the fully qualified class name
+This is the [file](migrate/blob/master/service-activator/src/main/resources/META-INF/services/org.jboss.msc.service.ServiceActivator) that AS7 will scan for and call the activate method of the fully qualified class name
 that it finds in this file.
 
 ### se.rl.msc.StartupActivator
