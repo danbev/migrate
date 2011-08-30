@@ -10,7 +10,7 @@ This is the [file](migrate/blob/master/service-activator/src/main/resources/META
 that it finds in this file.
 
 ### se.rl.msc.StartupActivator
-[StartupActivator](migrate/blob/master/service-activator/src/main/java/se/rl/msc/StartupActivator.java) is the implementation of _org.jboss.msc.service.ServiceActivator_ which installs a service into the
+[StartupActivator](service-activator/src/main/java/se/rl/msc/StartupActivator.java) is the implementation of _org.jboss.msc.service.ServiceActivator_ which installs a service into the
 service controller. 
 
 ### se.rl.msc.SampleService
