@@ -1,0 +1,5 @@
+apply plugin: 'java'
+
+dependencies {
+    compile 'org.jboss.msc:jboss-msc:1.0.0.GA'
+}
