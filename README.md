@@ -25,6 +25,7 @@ or on windows:
 The artifact produced will be located in _target/libs_.
 
 ## Starting AS7
+This example was tested using [JBoss AS 7.0.1.Final](http://download.jboss.org/jbossas/7.0/jboss-as-7.0.1.Final/jboss-as-7.0.1.Final.zip).
 
     ./standalone.sh --server-config=standalone-preview.xml
     
