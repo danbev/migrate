@@ -287,8 +287,9 @@ If all goes well you should see somethings similar to the following in the serve
 
     INFO [se.rl.migrate.ejb.GreeterBean] (Thread-4 (group:HornetQ-client-global-threads-780135981)) [1.0] Hello Daniel
 
-# ServiceActivator example
-The [service-activator](migrate/blob/master/service-activator) project contains an example of a JBoss Modular Service Container ServiceActivator.
+# service-activator project
+The [service-activator](migrate/blob/master/service-activator) project contains an example of a JBoss Modular Service Container ServiceActivator,
+and an example of a portable alternative using JEE.
 See the project readme for for information.
     
 

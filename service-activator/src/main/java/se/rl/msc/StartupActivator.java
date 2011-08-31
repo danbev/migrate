@@ -18,7 +18,6 @@ public class StartupActivator implements ServiceActivator {
 
     @Override
     public void activate(final ServiceActivatorContext sac) throws ServiceRegistryException {
-        System.out.println("StartupActivator activate");
         sac.getServiceTarget().addService(SERVICE_NAME, new SampleService()).install();
     }
 

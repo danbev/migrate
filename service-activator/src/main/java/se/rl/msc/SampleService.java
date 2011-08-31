@@ -1,5 +1,6 @@
 package se.rl.msc;
 
+import org.apache.log4j.Logger;
 import org.jboss.msc.service.Service;
 import org.jboss.msc.service.StartContext;
 import org.jboss.msc.service.StartException;
@@ -14,6 +15,8 @@ import org.jboss.msc.service.StopContext;
  */
 public class SampleService implements Service<Void>{
     
+    private Logger log = Logger.getLogger(SampleService.class);
+    
     @Override
     public Void getValue() throws IllegalStateException, IllegalArgumentException {
         return null;
@@ -21,12 +24,12 @@ public class SampleService implements Service<Void>{
 
     @Override
     public void start(StartContext context) throws StartException {
-        System.out.println("SampleService start");
+        log.info("start");
     }
 
     @Override
     public void stop(StopContext context) {
-        System.out.println("SampleService stop");
+        log.info("stop");
     }
 
 }

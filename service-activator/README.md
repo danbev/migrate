@@ -31,3 +31,9 @@ Using CLI:
     [standalone@localhost:9999 /] /deployment=service-activator.jar:undeploy
 	{"outcome" => "success"}
     
+# Service using JEE
+A service is also added to this example that uses JEE annotations and hence portable. 
+[EEService](service-activator/src/main/java/se/rl/ee/EEService.java) shows the usage of a singleton service that will
+have its method annotated with @PostContruct called upon deployment. An upon undeployment the method annotated with
+@PreDestroy will be called.
+
