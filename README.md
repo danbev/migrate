@@ -48,7 +48,7 @@ Example using the CLI:
 
     [standalone@localhost:9999 /] /subsystem=messaging/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
 
-Example using Groovy and the HTTP API: 
+Example using Groovy and the HTTP API:  
 Change into the _management_ directory and run the [add-queue](migrate/blob/master/management/build.gradle) command:
 
     ../gradlew add-queue 
