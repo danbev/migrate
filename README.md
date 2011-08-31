@@ -50,7 +50,7 @@ Example using the CLI:
 Example using the HTTP API:
 Change into the _management_ directory and run the [add-queue](migrate/blob/master/management/build.gradle) command:
 
-    ./gradlew add-queue 
+    ../gradlew add-queue 
 
 If you check the server console log you will see the following:
     
@@ -69,7 +69,7 @@ Example using the CLI:
 Example using the HTTP API:
 Change into the _management_ directory and run the [add-ds](migrate/blob/master/management/build.gradle) command:
 
-    ./gradlew add-ds 
+    ../gradlew add-ds 
     
     
 If you check the server console log you will see the following:
@@ -80,7 +80,7 @@ If you check the server console log you will see the following:
 ### Deploying the ear
 Deploying using the file system:
 
-    cp target/lib/migrate.ear /path/to/as7/standalone/deployments
+    cp target/libs/migrate.ear /path/to/as7/standalone/deployments
     
 Deploying using CLI:
 
@@ -191,13 +191,29 @@ module.
 
 First we need to build the _module_ project:
 
-    ./gradlew mod
-This command will produce a directory named _user-modules_ in the _target_ directory. Copy this directory to your servers home directory:
+    ../gradlew mod
+This command will produce a directory named _user-modules_ in module/_target_ directory. Copy this directory to your servers home directory:
 
     cp -r user-module /path/to/as7
-The last thing to do is to make AS7 aware of this custom modules directory. You may have noticed that there is directory named _modules_ in the servers home directory. This is where all the pre-installedmodules that are shipped with the server are stored. To avoid mixing our custom modules and make upgrading easier we will use a different directory. To accomplish this we need to update the standalone.sh or standalone.bat file:
+The last thing to do is to make AS7 aware of this custom modules directory. You may have noticed that there is directory named _modules_ in the servers home directory. This is where all the pre-installed 
+modules that are shipped with the server are stored. To avoid mixing our custom modules and make upgrading easier we will use a different directory. To accomplish this we need to 
+update the standalone.sh or standalone.bat file:
 
      -mp \"$JBOSS_HOME/modules\":\"$JBOSS_HOME/user-modules\" \
+Notice that _standalone.sh_ contains two entries for the modules path argument (mp). It is the first one that is used in this example and the updated section should look like this:
+
+     # Execute the JVM in the foreground
+      eval \"$JAVA\" $JAVA_OPTS \
+         \"-Dorg.jboss.boot.log.file=$JBOSS_HOME/standalone/log/boot.log\" \
+         \"-Dlogging.configuration=file:$JBOSS_HOME/standalone/configuration/logging.properties\" \
+         -jar \"$JBOSS_HOME/jboss-modules.jar\" \
+         -mp \"$JBOSS_HOME/modules:$JBOSS_HOME/user-modules\" \
+         -logmodule "org.jboss.logmanager" \
+         -jaxpmodule javax.xml.jaxp-provider \
+         org.jboss.as.standalone \
+         -Djboss.home.dir=\"$JBOSS_HOME\" \
+         "$@"
+         
 Now we only need to add this dependency to our ejb project. Open _ejb/build.gradle_ and 'se.rl.util:1.0' as a dependency:
 
     attributes 'Dependencies': 'org.apache.log4j,se.rl.util:1.0'
