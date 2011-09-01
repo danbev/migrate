@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+dependencies {
+    compile 'log4j:log4j:1.2.16'
+}
+
+jar {
+    manifest {
+        attributes 'Dependencies': 'org.apache.log4j'
+    }
+}
