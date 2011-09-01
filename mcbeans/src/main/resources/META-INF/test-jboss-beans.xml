@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--deployment xmlns="urn:jboss:bean-deployer:2.0"-->
-<!-- 1. Comment in the correct namespace -->
+<deployment xmlns="urn:jboss:bean-deployer:2.0">
+<!-- 1. Comment in the correct namespace 
 <deployment xmlns="urn:jboss:mc:7.0"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="urn:jboss:mc:7.0 jboss-pojo_7_0.xsd">
+-->
       
   <bean name="testBean" class="se.rl.mcbeans.TestBean">
     <install method="start"/>

@@ -42,7 +42,7 @@ This example takes a POJO that was configured for JBoss AS 5/6 and tried to depl
     14:57:09,908 ERROR [org.jboss.as.deployment] (DeploymentScanner-threads - 2) {"Composite operation failed and was rolled back. Steps that failed:" => {"Operation step-2" => {"Failed services" => {"jboss.deployment.unit.\"mcbeans.jar\".PARSE" => "org.jboss.msc.service.StartException in service jboss.deployment.unit.\"mcbeans.jar\".PARSE: Failed to process phase PARSE of deployment \"mcbeans.jar\""}}}}
 What this says is that the element _deployment_ with the namespace _urn:jboss:bean-deployer:2.0_ in not recognized. The namespace has changed with AS7 and should 
 now be _urn:jboss:mc:7.0_
-Open up [test-jboss-beans.xml](mcbeans/src/main/resources/test-jboss-beans.xml) and add the correct namespace.
+Open up [test-jboss-beans.xml](mcbeans/src/main/resources/META-INF/test-jboss-beans.xml) and add the correct namespace.
 
 Now, rebuild the application and deploy once more. You should see the following in the server console:
 
