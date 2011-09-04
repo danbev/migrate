@@ -223,7 +223,7 @@ Creating a custom module as explained above is great if you have multiple applic
 is that you have to maintain this directory structure and the modules have to be available of all installations if you are running in a cluster.
 
 ## Step 2b: Alternatively adding a module as a deployment
-With AS7 you also have the option to configure a module with a deployment. You can package a (META-INF/jboss-deployment-structure.xml)[migrate/blob/master/module/src/main/resources/META-INF/jboss-deployment-structure.xml) 
+With AS7 you also have the option to configure a module with a deployment. You can package a [META-INF/jboss-deployment-structure.xml](migrate/blob/master/module/src/main/resources/META-INF/jboss-deployment-structure.xml) 
 with your deployment or as a separate deployment. Notice how the name of such a module is prefixed with _deployment_ which means
 that you'll have to update you dependencis manifest headers.
 To try this out we need to revert the change to _standalone.sh_ and remove the _user-modules_ directory that we added. It should now looks like it did from the start:
