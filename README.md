@@ -291,6 +291,12 @@ If all goes well you should see somethings similar to the following in the serve
 The [service-activator](migrate/blob/master/service-activator) project contains an example of a JBoss Modular Service Container ServiceActivator,
 and an example of a portable alternative using JEE.
 See the project readme for for information.
+
+# mcbeans project
+The [mcbeans](migrate/blob/master/mcbeans) project contains an example of a JBoss Micro container bean and deploying it to AS7.
+
+# jboss-service project
+The [jboss-service](migrate/blob/master/jboss-service) project contains an example of taking a jboss-service.xml and deploying it to AS7.
     
 
     
