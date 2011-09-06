@@ -1,13 +1,11 @@
 <jboss-deployment-structure>
-
-	<module name="deployment.org.apache.log4j" >
-		<resources>
-			<resource-root path="log4j-1.2.16.jar" />
-			<resource-root path="logging"/>
-	    </resources>
-	    <dependencies>
-	       <module name="javaee.api"/>
-	    </dependencies>
-	</module>
-  
+     <module name="deployment.org.apache.log4j" >
+        <resources>
+            <resource-root path="log4j-1.2.16.jar" />
+            <resource-root path="logging"/>
+        </resources>
+        <dependencies>
+            <module name="javaee.api"/>
+        </dependencies>
+    </module>
 </jboss-deployment-structure>
