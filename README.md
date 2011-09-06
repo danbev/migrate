@@ -289,7 +289,7 @@ If all goes well you should see somethings similar to the following in the serve
 
 # service-activator project
 The [service-activator](migrate/blob/master/service-activator) project contains an example of a JBoss Modular Service Container ServiceActivator,
-and an example of a portable alternative using JEE.
+and an example of a portable alternative using JEE. This project also contains an example of customizing logging using log4j.
 See the project readme for for information.
 
 # mcbeans project
