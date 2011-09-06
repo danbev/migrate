@@ -7,7 +7,8 @@ dependencies {
 }
 
 jar {
+    from configurations.compile.filter{ it.getName().contains('log4j') }
     manifest {
-        attributes 'Dependencies': 'org.apache.log4j'
+        attributes 'Dependencies': 'deployment.org.apache.log4j'
     }
 }
