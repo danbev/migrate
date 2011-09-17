@@ -1,6 +1,8 @@
 # JBoss Microcontainer Beans
 This example takes a POJO that was configured for JBoss AS 5/6 and tried to deploy it in JBoss AS7.
 
+**Please note that the POJO subsystem will be available with version [AS 7.0.2.Final](https://issues.jboss.org/browse/AS7-319) and to be able to run this example you'll either need a [nightly build](https://ci.jboss.org/jenkins/view/JBoss%20AS/job/JBoss-AS-7.0.x/lastSuccessfulBuild/artifact/build/target/jboss-7.0.x.zip) or build from [source](https://github.com/jbossas/jboss-as).**
+
 
 # Building
 
