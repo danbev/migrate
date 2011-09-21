@@ -58,6 +58,9 @@ If you find this annoying when playing with the app just remove the added scanne
 
     [standalone@localhost:9999 /] /subsystem=deployment-scanner/scanner=user:remove                                                              
     
+Now you'll get an error upon deployment which is expected as the point of the application is to show different
+issues that crop up when migrating. Follow the steps below to take care of the issues as the appear.
+    
 # Step 1: Adding a data source
 When deploying the migrate ear this time the following error message will be displayed:
 
@@ -67,7 +70,7 @@ When deploying the migrate ear this time the following error message will be dis
     10:38:58,376 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment war.war in 53ms
     10:38:58,377 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment ejb.jar in 53ms
     10:38:58,379 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment migrate.ear in 56ms
-_missing [ jboss.naming.context.java.jboss.datasources.MigrateDS ]_ tells us that a data source is missing.
+The "_missing [ jboss.naming.context.java.jboss.datasources.MigrateDS ]_" tells us that a data source is missing.
 
 The example application uses entity beans to persist data and hence requires a data source to be installed. With AS7, datasources
 are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a data source using any of the
@@ -92,7 +95,7 @@ Next, redeploy the migrate.ear using CLI:
     /deployment=migrate.ear:redeploy
     
 
-# Step 3: Deploying a JMS Queue
+# Step 2: Deploying a JMS Queue
 When redploying the migrate.ear you get the following error in the server console:
 
     10:41:55,912 INFO  [org.jboss.weld] (MSC service thread 1-4) Starting weld service
@@ -124,8 +127,7 @@ If you check the server console log you will see the following:
     
  
 # Step 3: Dependency upon pre-installed module
-Now you'll get an error upon deployment which is expected as the point of the application is to show different
-issues that crop up when migrating.
+Now deploy the application and you'll see the following error in the server console:
 
     16:09:06,353 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) Starting deployment of "migrate.ear"
     16:09:06,451 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) Starting deployment of "war.war"
@@ -188,7 +190,7 @@ What this indicates is that with AS7 and its modularity we need to explicitely s
 Since logj4 is a module that is shipped with AS7 we can be accomplished by setting a manifest header. Open _ejb/build.gradle_ and uncomment:
 
 	attributes 'Dependencies': 'org.apache.log4j'
-Now, rebuild the ear and redploy it. It should now deploy successfully.
+Now, rebuild the ear and redploy it.
 
 # Step 4: Dependency upon custom module
 After successfully deploying migrate.ear as explained in the previous section we are now ready to run the app. 
@@ -248,7 +250,7 @@ Now we only need to add this dependency to our ejb project. Open _ejb/build.grad
 Creating a custom module as explained above is great if you have multiple applications that use the same module. The downside to this
 is that you have to maintain this directory structure and the modules have to be available of all installations if you are running in a cluster.
 
-## Step 2b: Alternatively adding a module as a deployment
+## Step 4b: Alternatively adding a module as a deployment
 With AS7 you also have the option to configure a module with a deployment. You can package a [META-INF/jboss-deployment-structure.xml](migrate/blob/master/module/src/main/resources/META-INF/jboss-deployment-structure.xml) 
 with your deployment or as a separate deployment. Notice how the name of such a module is prefixed with _deployment_ which means
 that you'll have to update you dependencis manifest headers.
@@ -324,6 +326,10 @@ The [mcbeans](migrate/blob/master/mcbeans) project contains an example of a JBos
 # jboss-service project
 The [jboss-service](migrate/blob/master/jboss-service) project contains an example of taking a jboss-service.xml and deploying it to AS7.
     
+# osgi/core
+This project contains a very simple example of an OSGI BundleActivator.
 
+# osgi/blueprint
+This project contains a very simple example using OSGI blueprint specification.
     
 

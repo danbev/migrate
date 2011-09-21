@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'osgi'
+apply plugin: 'eclipse'
+
+archivesBaseName = 'osgi-core'
+
+dependencies {
+    compile 'org.osgi:osgi_R4_core:1.0'
+    compile 'log4j:log4j:1.2.16'
+}
+
+jar {
+    manifest { 
+        name = 'Migrate App OSGi Example'
+        instruction 'Bundle-Activator', 'se.rl.osgi.SimpleActivator'
+        instruction 'Bundle-Version', '1.0.0'
+        instruction 'Import-Package', 'org.apache.log4j, org.osgi.framework;version="[1.3,2)"'
+    }
+}
+
+eclipseProject {
+    whenConfigured { project ->
+        project.name = archivesBaseName
+    }
+}

@@ -1,0 +1,10 @@
+apply plugin: 'osgi'
+apply plugin: 'java'
+
+archivesBaseName = 'osgi-blueprint'
+
+eclipseProject {
+    whenConfigured { project ->
+        project.name = archivesBaseName
+    }
+}
