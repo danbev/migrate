@@ -60,73 +60,8 @@ If you find this annoying when playing with the app just remove the added scanne
     
 Now you'll get an error upon deployment which is expected as the point of the application is to show different
 issues that crop up when migrating. Follow the steps below to take care of the issues as the appear.
-    
-# Step 1: Adding a data source <a id="add-ds"/>
-When deploying the migrate ear this time the following error message will be displayed:
 
-    10:38:57,379 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting Services for CDI deployment: migrate.ear
-    10:38:57,445 INFO  [org.jboss.weld.Version] (MSC service thread 1-3) WELD-000900 1.1.2 (Final)
-    10:38:58,322 INFO  [org.jboss.as.server.controller] (pool-3-thread-3) Deployment of "migrate.ear" was rolled back with failure message {"Services with missing/unavailable dependencies" => ["jboss.persistenceunit.\"migrate.ear/ejb.jar#MigrateUnit\" missing [ jboss.naming.context.java.jboss.datasources.MigrateDS ]"]}
-    10:38:58,376 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment war.war in 53ms
-    10:38:58,377 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment ejb.jar in 53ms
-    10:38:58,379 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment migrate.ear in 56ms
-The "_missing [ jboss.naming.context.java.jboss.datasources.MigrateDS ]_" tells us that a data source is missing.
-
-The example application uses entity beans to persist data and hence requires a data source to be installed. With AS7, datasources
-are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a data source using any of the
-administration consoles. We will demonstrate two alternatives here, CLI and Java API
-
-Example using the CLI:
-
-    /subsystem=datasources/data-source=MigrateDS:add(jndi-name=java:jboss/datasources/MigrateDS, pool-name=MigrateDS, driver-name=h2, connection-url=jdbc:h2:mem:test;DB_CLOSE_DELAY=-1)
-    
-Example using Groovy and the Java API:  
-Change into the _management_ directory and run the [add-ds](migrate/blob/master/management/build.gradle) command:
-
-    ../gradlew add-ds 
-    
-    
-If you check the server console log you will see the following:
-
-    INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) Bound data source [java:jboss/datasources/MigrateDS2]
-    
-Next, redeploy the migrate.ear using CLI:
-
-    /deployment=migrate.ear:redeploy
-    
-
-# Step 2: Deploying a JMS Queue <a id="add-queue"/>
-When redploying the migrate.ear you get the following error in the server console:
-
-    10:41:55,912 INFO  [org.jboss.weld] (MSC service thread 1-4) Starting weld service
-    10:41:56,502 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) awaiting topic/queue creation queue/GreeterQueue
-    10:41:56,552 INFO  [org.jboss.web] (MSC service thread 1-3) registering web context: /war
-    10:41:56,579 INFO  [org.jboss.as.server.controller] (pool-3-thread-13) Redeployed "migrate.ear"
-    10:41:56,579 INFO  [org.jboss.as.server.controller] (pool-3-thread-13) Undeployed "migrate.ear"
-    10:41:58,502 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) Attempting to reconnect org.hornetq.ra.inflow.HornetQActivationSpec(ra=org.hornetq.ra.HornetQResourceAdapter@374131a8 destination=queue/GreeterQueue destinationType=javax.jms.Queue ack=Auto-acknowledge durable=false clientID=null user=null maxSession=15)
-    10:41:58,509 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) awaiting topic/queue creation queue/GreeterQueue
-    10:42:00,509 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) Attempting to reconnect org.hornetq.ra.inflow.HornetQActivationSpec(ra=org.hornetq.ra.HornetQResourceAdapter@374131a8 destination=queue/GreeterQueue destinationType=javax.jms.Queue ack=Auto-acknowledge durable=false clientID=null user=null maxSession=15)
-    
-The example application uses a JMS queue which needs to added to AS7. In previous versions of JBoss AS one could package a queue definition file
-with the deployment and it would be deployed with the application. With AS7, JMS destinations (queues and topics)
-are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a JMS destination using 
-any of the administration consoles. We will demonstrate two alternatives here, CLI and Java API.  
-Example using the CLI:
-
-    /subsystem=messaging/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
-
-Example using Groovy and the Java API:  
-Change into the _management_ directory and run the [add-queue](migrate/blob/master/management/build.gradle) command:
-
-    ../gradlew add-queue 
-
-If you check the server console log you will see the following:
-    
-    INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) trying to deploy queue jms.queue.GreeterQueue
-    INFO  [org.jboss.as.messaging.jms.AS7BindingRegistry] (MSC service thread 1-1) Bound messaging object to jndi name java:/queue/GreeterQueue
-    
- 
-# Step 3: Dependency upon pre-installed module <a id="module"/>
+# Step 1: Dependency upon pre-installed module <a id="module"/>
 Now deploy the application and you'll see the following error in the server console:
 
     16:09:06,353 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) Starting deployment of "migrate.ear"
@@ -189,8 +124,75 @@ What we should notice is this line:
 What this indicates is that with AS7 and its modularity we need to explicitely state that our application uses log4j.
 Since logj4 is a module that is shipped with AS7 we can be accomplished by setting a manifest header. Open _ejb/build.gradle_ and uncomment:
 
-	attributes 'Dependencies': 'org.apache.log4j'
+    attributes 'Dependencies': 'org.apache.log4j'
 Now, rebuild the ear and redploy it.
+
+    
+# Step 2: Adding a data source <a id="add-ds"/>
+When deploying the migrate ear this time the following error message will be displayed:
+
+    10:38:57,379 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting Services for CDI deployment: migrate.ear
+    10:38:57,445 INFO  [org.jboss.weld.Version] (MSC service thread 1-3) WELD-000900 1.1.2 (Final)
+    10:38:58,322 INFO  [org.jboss.as.server.controller] (pool-3-thread-3) Deployment of "migrate.ear" was rolled back with failure message {"Services with missing/unavailable dependencies" => ["jboss.persistenceunit.\"migrate.ear/ejb.jar#MigrateUnit\" missing [ jboss.naming.context.java.jboss.datasources.MigrateDS ]"]}
+    10:38:58,376 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment war.war in 53ms
+    10:38:58,377 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment ejb.jar in 53ms
+    10:38:58,379 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment migrate.ear in 56ms
+The "_missing [ jboss.naming.context.java.jboss.datasources.MigrateDS ]_" tells us that a data source is missing.
+
+The example application uses entity beans to persist data and hence requires a data source to be installed. With AS7, datasources
+are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a data source using any of the
+administration consoles. We will demonstrate two alternatives here, CLI and Java API
+
+Example using the CLI:
+
+    /subsystem=datasources/data-source=MigrateDS:add(jndi-name=java:jboss/datasources/MigrateDS, pool-name=MigrateDS, driver-name=h2, connection-url=jdbc:h2:mem:test;DB_CLOSE_DELAY=-1)
+    
+Example using Groovy and the Java API:  
+Change into the _management_ directory and run the [add-ds](migrate/blob/master/management/build.gradle) command:
+
+    ../gradlew add-ds 
+    
+    
+If you check the server console log you will see the following:
+
+    INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) Bound data source [java:jboss/datasources/MigrateDS2]
+    
+Next, redeploy the migrate.ear using CLI:
+
+    /deployment=migrate.ear:redeploy
+    
+
+# Step 3: Deploying a JMS Queue <a id="add-queue"/>
+When redploying the migrate.ear you get the following error in the server console:
+
+    10:41:55,912 INFO  [org.jboss.weld] (MSC service thread 1-4) Starting weld service
+    10:41:56,502 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) awaiting topic/queue creation queue/GreeterQueue
+    10:41:56,552 INFO  [org.jboss.web] (MSC service thread 1-3) registering web context: /war
+    10:41:56,579 INFO  [org.jboss.as.server.controller] (pool-3-thread-13) Redeployed "migrate.ear"
+    10:41:56,579 INFO  [org.jboss.as.server.controller] (pool-3-thread-13) Undeployed "migrate.ear"
+    10:41:58,502 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) Attempting to reconnect org.hornetq.ra.inflow.HornetQActivationSpec(ra=org.hornetq.ra.HornetQResourceAdapter@374131a8 destination=queue/GreeterQueue destinationType=javax.jms.Queue ack=Auto-acknowledge durable=false clientID=null user=null maxSession=15)
+    10:41:58,509 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) awaiting topic/queue creation queue/GreeterQueue
+    10:42:00,509 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) Attempting to reconnect org.hornetq.ra.inflow.HornetQActivationSpec(ra=org.hornetq.ra.HornetQResourceAdapter@374131a8 destination=queue/GreeterQueue destinationType=javax.jms.Queue ack=Auto-acknowledge durable=false clientID=null user=null maxSession=15)
+    
+The example application uses a JMS queue which needs to added to AS7. In previous versions of JBoss AS one could package a queue definition file
+with the deployment and it would be deployed with the application. With AS7, JMS destinations (queues and topics)
+are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a JMS destination using 
+any of the administration consoles. We will demonstrate two alternatives here, CLI and Java API.  
+Example using the CLI:
+
+	/subsystem=messaging/hornetq-server=default/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
+
+Example using Groovy and the Java API:  
+Change into the _management_ directory and run the [add-queue](migrate/blob/master/management/build.gradle) command:
+
+    ../gradlew add-queue 
+
+If you check the server console log you will see the following:
+    
+    INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) trying to deploy queue jms.queue.GreeterQueue
+    INFO  [org.jboss.as.messaging.jms.AS7BindingRegistry] (MSC service thread 1-1) Bound messaging object to jndi name java:/queue/GreeterQueue
+    
+ 
 
 # Step 4: Dependency upon custom module <a id="cmodule"/>
 After successfully deploying migrate.ear as explained in the previous section we are now ready to run the app. 
@@ -212,6 +214,7 @@ Try this out and you'll see that another issue will be exposed:
         at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53)
         at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:287)
         at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:73)
+        ...
 From the stacktrace we can see that the error is being thrown from [GreeterMDB](migrate/blob/master/ejb/src/main/java/se/rl/migrate/mdb/GreeterMDB.java)'s
 logConstruction method. This method is using a class named [SomeUtil](migrate/blob/master/module/src/main/java/se/rl/util/SomeUtil.java) which is not packaged in the jar file. So, could
 we fix this issue the same way as we did for the previous one. Well, it turns out we can but for this to work we need to create a module for it. This was not required by the previous task because
