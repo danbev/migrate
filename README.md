@@ -61,7 +61,7 @@ If you find this annoying when playing with the app just remove the added scanne
 Now you'll get an error upon deployment which is expected as the point of the application is to show different
 issues that crop up when migrating. Follow the steps below to take care of the issues as the appear.
     
-# Step 1: Adding a data source
+# Step 1: Adding a data source <a id="add-ds"/>
 When deploying the migrate ear this time the following error message will be displayed:
 
     10:38:57,379 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting Services for CDI deployment: migrate.ear
@@ -95,7 +95,7 @@ Next, redeploy the migrate.ear using CLI:
     /deployment=migrate.ear:redeploy
     
 
-# Step 2: Deploying a JMS Queue
+# Step 2: Deploying a JMS Queue <a id="add-queue"/>
 When redploying the migrate.ear you get the following error in the server console:
 
     10:41:55,912 INFO  [org.jboss.weld] (MSC service thread 1-4) Starting weld service
@@ -126,7 +126,7 @@ If you check the server console log you will see the following:
     INFO  [org.jboss.as.messaging.jms.AS7BindingRegistry] (MSC service thread 1-1) Bound messaging object to jndi name java:/queue/GreeterQueue
     
  
-# Step 3: Dependency upon pre-installed module
+# Step 3: Dependency upon pre-installed module <a id="module"/>
 Now deploy the application and you'll see the following error in the server console:
 
     16:09:06,353 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) Starting deployment of "migrate.ear"
@@ -192,7 +192,7 @@ Since logj4 is a module that is shipped with AS7 we can be accomplished by setti
 	attributes 'Dependencies': 'org.apache.log4j'
 Now, rebuild the ear and redploy it.
 
-# Step 4: Dependency upon custom module
+# Step 4: Dependency upon custom module <a id="cmodule"/>
 After successfully deploying migrate.ear as explained in the previous section we are now ready to run the app. 
 Open a web browser and open the following url; http://localhost:8080/war
 
@@ -250,7 +250,7 @@ Now we only need to add this dependency to our ejb project. Open _ejb/build.grad
 Creating a custom module as explained above is great if you have multiple applications that use the same module. The downside to this
 is that you have to maintain this directory structure and the modules have to be available of all installations if you are running in a cluster.
 
-## Step 4b: Alternatively adding a module as a deployment
+## Step 4b: Alternatively adding a module as a deployment <a id="dmodule"/>
 With AS7 you also have the option to configure a module with a deployment. You can package a [META-INF/jboss-deployment-structure.xml](migrate/blob/master/module/src/main/resources/META-INF/jboss-deployment-structure.xml) 
 with your deployment or as a separate deployment. Notice how the name of such a module is prefixed with _deployment_ which means
 that you'll have to update you dependencis manifest headers.
@@ -268,7 +268,7 @@ Next, we have to update the dependency manifest header in _ejb/build.gradle_ to 
 Now redeploy migrate.ear and re-run the application. 
     
 
-# Step 5. Dependency on jar in deployment archive
+# Step 5. Dependency on jar in deployment archive  <a id="dep"/>
 Re-build and deploy migrate.ear and re-run the application again. The following error will be displayed:
 
     Caused by: java.lang.NoClassDefFoundError: se/rl/migrate/Version
