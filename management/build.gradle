@@ -19,7 +19,6 @@ task ('add-queue', description: "Adds a JMS Queue to AS7 using the Java API") <<
     ModelNode op = new ModelNode();
     ModelNode address = op.get("address");
     address.add("subsystem", "messaging");
-    address.add("hornetq-server", "default");
     address.add("jms-queue", queue);
     ModelNode entries = op.get("entries");
     entries.add("queue/" + queue);
