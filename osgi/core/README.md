@@ -1,5 +1,5 @@
 ## OSGi Core Example
-This project contains a very basic example of an application that uses the OSGi [bundle activator](osgi/core/src/main/java/se/rl/osgi/SimpleActivator.java).
+This project contains a very basic example of an application that uses the OSGi [bundle activator](core/src/main/java/se/rl/osgi/SimpleActivator.java).
 
 # Building
 

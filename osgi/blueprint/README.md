@@ -2,8 +2,8 @@
 This project contains a very basic example of an application that uses the OSGi Blueprint specification.
 
 The main point of this example is that the implemenation does not contain any code related to OSGi. Instead the [blueprint
-xml configuration file](osgi/blueprint/src/main/resources/OSGI-INF/blueprint/pojo.xml) is read by the OSGi runtime and it 
-will take care of creating and wiring the [POJO](osgi/blueprint/src/main/java/se/rl/blueprint/Pojo.java) instance.
+xml configuration file](blueprint/src/main/resources/OSGI-INF/blueprint/pojo.xml) is read by the OSGi runtime and it 
+will take care of creating and wiring the [POJO](blueprint/src/main/java/se/rl/blueprint/Pojo.java) instance.
 
 # Building
 
