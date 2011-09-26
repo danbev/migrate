@@ -305,9 +305,9 @@ Re-build and deploy migrate.ear and re-run the application again. The following 
         at org.jboss.ejb3.tx2.impl.CMTTxInterceptor.invokeInCallerTx(CMTTxInterceptor.java:233)
         ... 55 more
 To understand this issue we need to take a look at the [GreeterBean](migrate/blob/master/ejb/src/main/java/se/rl/migrate/ejb/GreeterBean.java).
-Notice how the GreetingBean uses _se.rl.migrate.Version_. This class is packaged in a separate jar file and can be found 
-in the root of migrate.ear. Since this jar is not located in the ear's lib director, which is specified using 'library_directory'
-element in _META-INF/application.xml_, AS7 has no knowledge of this class. 
+Notice how the GreetingBean uses _se.rl.migrate.Version_. This class is packaged in a separate jar file which is located in the root of  
+of migrate.ear. Since this jar is not in the ear's lib director, which is specified using _library\_directory_
+element in [META-INF/application.xml](migrate/blob/master/src/main/application/META-INF/application.xml), AS7 has no knowledge of this class. 
 To make AS7, and other containers for that matter, aware of this class we need to update the ejb.jar's MANIFEST.
 
 Again, open _ejb/build.gradle_ and uncomment:
