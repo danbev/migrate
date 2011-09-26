@@ -330,9 +330,9 @@ The [mcbeans](migrate/blob/master/mcbeans) project contains an example of a JBos
 The [jboss-service](migrate/blob/master/jboss-service) project contains an example of taking a jboss-service.xml and deploying it to AS7.
     
 # osgi/core
-This project contains a very simple example of an OSGI BundleActivator.
+The [osgi-core](migrate/blob/master/osgi/core) project contains a very simple example of an OSGI BundleActivator.
 
 # osgi/blueprint
-This project contains a very simple example using OSGI blueprint specification.
+The [osgi-blueprint](migrate/blob/master/osgi/blueprint) project contains a very simple example using OSGI blueprint specification.
     
 
