@@ -180,7 +180,7 @@ are configured in a central location, either in domain.xml or standalone.xml. On
 any of the administration consoles. We will demonstrate two alternatives here, CLI and Java API.  
 Example using the CLI:
 
-	/subsystem=messaging/hornetq-server=default/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
+	/subsystem=messaging/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
 
 Example using Groovy and the Java API:  
 Change into the _management_ directory and run the [add-queue](migrate/blob/master/management/build.gradle) command:
