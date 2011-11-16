@@ -1,4 +1,6 @@
-## ./jboss-admin.sh file=/path/to/this/file.
+# ./jboss-admin.sh file=/path/to/this/file.
+# You'll be prompted for a username and password which will need to be uncommented
+# in $AS7_HOME/standalone/configuration//mgmt-users.properties
 connect
 /subsystem=datasources/data-source=MigrateDS:add(jndi-name=java:jboss/datasources/MigrateDS, pool-name=MigrateDS, driver-name=h2, connection-url=jdbc:h2:mem:test;DB_CLOSE_DELAY=-1)
-/subsystem=messaging/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
+/subsystem=messaging/hornetq-server=default/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
