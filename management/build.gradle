@@ -52,6 +52,8 @@ task ('add-ds', description:"Adds a data source named to AS7 using the Java API"
     op.get("jndi-name").set("java:jboss/datasources/" + dsname);
     op.get("driver-name").set("h2");
     op.get("pool-name").set("MigrateDS");
+    op.get("user-name").set("sa");
+    op.get("password").set("sa");
     op.get("connection-url").set("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
 
     ModelNode retVal = client.execute(op);
@@ -63,10 +65,10 @@ task ('add-ds', description:"Adds a data source named to AS7 using the Java API"
     ModelNode addr = enable.get("address");
     addr.add("subsystem", "datasources");
     addr.add("data-source", dsname);
-        
     enable.get("name").set("enabled");
     enable.get("value").set(true);
     ModelNode result = client.execute(enable);
+    System.out.println(result);
 }
 
 private static CallbackHandler getCallbackHandler(final String username, final String password) {

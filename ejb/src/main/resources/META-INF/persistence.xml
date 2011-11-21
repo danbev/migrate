@@ -5,6 +5,8 @@
     <jta-data-source>java:jboss/datasources/MigrateDS</jta-data-source>
     <properties>
         <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        <property name="javax.persistence.jdbc.user" value="sa"/>
+        <property name="javax.persistence.jdbc.password" value="sa"/>
     </properties>
   </persistence-unit>
 </persistence>
