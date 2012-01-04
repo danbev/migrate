@@ -9,6 +9,7 @@ import javax.naming.NamingException;
 
 import org.jboss.sasl.JBossSaslProvider;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -27,6 +28,7 @@ public class GreeterBeanClient {
     }
 
     @Test
+    @Ignore
     public void invoke() throws Exception {
         final String beanName = assembleJndiName();
         final Greeter greeter = jndiLookup(beanName);

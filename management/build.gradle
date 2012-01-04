@@ -11,9 +11,10 @@ buildscript {
         mavenRepo urls: "http://repository.codehaus.org"
         mavenRepo urls: "https://repository.jboss.org/nexus/content/groups/public-jboss"
         mavenCentral()
+        mavenLocal();
     }
     dependencies {
-        classpath 'org.jboss.as:jboss-as-controller:7.0.2.Final'
+        classpath 'org.jboss.as:jboss-as-controller:7.1.0.Final-SNAPSHOT'
     }
 }
 
@@ -22,53 +23,50 @@ import org.jboss.dmr.ModelNode;
 
 task ('add-queue', description: "Adds a JMS Queue to AS7 using the Java API") << {
     def queue = 'GreeterQueue'
-    CallbackHandler cb = getCallbackHandler("admin", "admin");
-    ModelControllerClient client = ModelControllerClient.Factory.create(InetAddress.getByName("localhost"), 9999, cb);
+    CallbackHandler cb = getCallbackHandler("admin", "admin")
+    ModelControllerClient client = ModelControllerClient.Factory.create(InetAddress.getByName("localhost"), 9999, cb)
 
-    ModelNode op = new ModelNode();
-    ModelNode address = op.get("address");
-    address.add("subsystem", "messaging");
-    address.add("hornetq-server", "default"); //will be required with the next version of AS7
-    address.add("jms-queue", queue);
-    ModelNode entries = op.get("entries");
-    entries.add("queue/" + queue);
-    op.get("operation").set("add");
+    ModelNode op = new ModelNode()
+    ModelNode address = op.get("address")
+    address.add("subsystem", "messaging")
+    address.add("hornetq-server", "default")
+    address.add("jms-queue", queue)
+    ModelNode entries = op.get("entries")
+    entries.add("queue/" + queue)
+    op.get("operation").set("add")
        
-    ModelNode retVal = client.execute(op);
-    System.out.println(retVal);
+    ModelNode retVal = client.execute(op)
+    System.out.println(retVal)
 }
 
 task ('add-ds', description:"Adds a data source named to AS7 using the Java API") << {
     def dsname = 'MigrateDS'
-    CallbackHandler cb = getCallbackHandler("admin", "admin");
-    ModelControllerClient client = ModelControllerClient.Factory.create(InetAddress.getByName("localhost"), 9999, cb);
+    CallbackHandler cb = getCallbackHandler("admin", "admin")
+    ModelControllerClient client = ModelControllerClient.Factory.create(InetAddress.getByName("localhost"), 9999, cb)
 
-    ModelNode op = new ModelNode();
-    op.get("operation").set("add");
-    ModelNode address = op.get("address");
-    address.add("subsystem", "datasources");
-    address.add("data-source", dsname);
-    op.get("enabled").set(true);
-    op.get("jndi-name").set("java:jboss/datasources/" + dsname);
-    op.get("driver-name").set("h2");
-    op.get("pool-name").set("MigrateDS");
-    op.get("user-name").set("sa");
-    op.get("password").set("sa");
-    op.get("connection-url").set("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
+    ModelNode op = new ModelNode()
+    op.get("operation").set("add")
+    ModelNode address = op.get("address")
+    address.add("subsystem", "datasources")
+    address.add("data-source", dsname)
+    op.get("jndi-name").set("java:jboss/datasources/" + dsname)
+    op.get("driver-name").set("h2")
+    op.get("pool-name").set("MigrateDS")
+    op.get("user-name").set("sa")
+    op.get("password").set("sa")
+    op.get("connection-url").set("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1")
 
-    ModelNode retVal = client.execute(op);
-    System.out.println(retVal);
+    ModelNode retVal = client.execute(op)
+    System.out.println("Create datasource result:" + retVal)
 
-    ModelNode enable = new ModelNode();
-    enable.get("operation").set("write-attribute");
+    ModelNode enable = new ModelNode()
+    enable.get("operation").set("enable")
         
-    ModelNode addr = enable.get("address");
-    addr.add("subsystem", "datasources");
-    addr.add("data-source", dsname);
-    enable.get("name").set("enabled");
-    enable.get("value").set(true);
-    ModelNode result = client.execute(enable);
-    System.out.println(result);
+    ModelNode addr = enable.get("address")
+    addr.add("subsystem", "datasources")
+    addr.add("data-source", dsname)
+    ModelNode result = client.execute(enable)
+    System.out.println("Enable datasource result: " + result)
 }
 
 private static CallbackHandler getCallbackHandler(final String username, final String password) {
