@@ -5,12 +5,8 @@ import java.util.Hashtable;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 
 import org.jboss.sasl.JBossSaslProvider;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
 
 /**
  * A remote EJB client that uses JNDI to look up the bean and invoke a method.
@@ -22,30 +18,28 @@ import org.junit.Test;
  */
 public class GreeterBeanClient {
     
-    @BeforeClass
-    public static void setup() {
+    public static void main(final String[] args) throws Exception {
         Security.addProvider(new JBossSaslProvider());
-    }
-
-    @Test
-    @Ignore
-    public void invoke() throws Exception {
         final String beanName = assembleJndiName();
+        System.out.println("EJB: " + beanName);
         final Greeter greeter = jndiLookup(beanName);
-        greeter.greet("Hello Hello, Clarice");
+        final String response = greeter.greet("Fletch");
+        System.out.println(response);
     }
     
-    private Greeter jndiLookup(final String jndiName) throws Exception {
+    private static Greeter jndiLookup(final String jndiName) throws Exception {
         Context context = null;
         try {
-            context = createContext();
+            final Hashtable<String,String> jndiProperties = new Hashtable<String,String>();
+            jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+            context =  new InitialContext(jndiProperties);
             return (Greeter) context.lookup(jndiName);
         } finally {
             context.close();
         }
     }
     
-    private String assembleJndiName() {
+    private static String assembleJndiName() {
         final StringBuilder ejbName = new StringBuilder();
         ejbName.append("ejb:").append("migrate/").append("ejb/");
         ejbName.append("/"); //Destinct name
@@ -54,10 +48,4 @@ public class GreeterBeanClient {
         return ejbName.toString();
     }
     
-    private Context createContext() throws NamingException {
-        final Hashtable<String,String> jndiProperties = new Hashtable<String,String>();
-        jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-        return new InitialContext(jndiProperties);
-    }
-
 }

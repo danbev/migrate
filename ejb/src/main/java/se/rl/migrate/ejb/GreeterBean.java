@@ -23,15 +23,18 @@ public class GreeterBean implements GreeterLocal, GreeterRemote {
         
     }
 
-    public void greet(final String name) {
+    public String greet(final String name) {
         final GreeterEntity greeter = em.find(GreeterEntity.class, name);
+        String response;
         if (greeter == null) {
-	        log.info("Hello " + name);
+	        response = "Hello " + name;
+	        log.info(response);
 	        em.persist(new GreeterEntity(name));
         }
         else {
+            response = "We have already greeted you " + name;
 	        log.info("We have already greeted you " + name);
         }
-        
+        return response;
     }
 }

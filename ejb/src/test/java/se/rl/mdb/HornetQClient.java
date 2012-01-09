@@ -10,9 +10,9 @@ import org.hornetq.core.client.impl.ServerLocatorImpl;
 import org.hornetq.core.remoting.impl.netty.NettyConnectorFactory;
 
 
-public final class Client {
+public final class HornetQClient {
     
-    private Client() {
+    private HornetQClient() {
     }
     
     public static void main(final String[] ignored) throws Exception {
