@@ -21,7 +21,7 @@ public class GreeterBeanClient {
     public static void main(final String[] args) throws Exception {
         Security.addProvider(new JBossSaslProvider());
         final String beanName = assembleJndiName();
-        System.out.println("EJB: " + beanName);
+        System.out.println("Lookup name: " + beanName);
         final Greeter greeter = jndiLookup(beanName);
         final String response = greeter.greet("Fletch");
         System.out.println(response);
