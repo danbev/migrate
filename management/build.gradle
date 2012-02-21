@@ -1,11 +1,20 @@
+import javax.security.auth.callback.Callback;
+import javax.security.auth.callback.CallbackHandler;
+import javax.security.auth.callback.NameCallback;
+import javax.security.auth.callback.PasswordCallback;
+import javax.security.auth.callback.UnsupportedCallbackException;
+import javax.security.sasl.RealmCallback;
+import javax.security.sasl.RealmChoiceCallback;
+
 buildscript {
     repositories {
         mavenRepo urls: "http://repository.codehaus.org"
         mavenRepo urls: "https://repository.jboss.org/nexus/content/groups/public-jboss"
         mavenCentral()
+        mavenLocal();
     }
     dependencies {
-        classpath 'org.jboss.as:jboss-as-controller:7.0.1.Final'
+        classpath 'org.jboss.as:jboss-as-controller:7.1.0.Final-SNAPSHOT'
     }
 }
 
@@ -14,34 +23,71 @@ import org.jboss.dmr.ModelNode;
 
 task ('add-queue', description: "Adds a JMS Queue to AS7 using the Java API") << {
     def queue = 'GreeterQueue'
-    ModelControllerClient client = ModelControllerClient.Factory.create(InetAddress.getByName("localhost"), 9999);
+    CallbackHandler cb = getCallbackHandler("admin", "admin")
+    ModelControllerClient client = ModelControllerClient.Factory.create(InetAddress.getByName("localhost"), 9999, cb)
 
-    ModelNode op = new ModelNode();
-    ModelNode address = op.get("address");
-    address.add("subsystem", "messaging");
-    address.add("jms-queue", queue);
-    ModelNode entries = op.get("entries");
-    entries.add("queue/" + queue);
-    op.get("operation").set("add");
+    ModelNode op = new ModelNode()
+    ModelNode address = op.get("address")
+    address.add("subsystem", "messaging")
+    address.add("hornetq-server", "default")
+    address.add("jms-queue", queue)
+    ModelNode entries = op.get("entries")
+    entries.add("queue/" + queue)
+    op.get("operation").set("add")
        
-    ModelNode retVal = client.execute(op);
-    System.out.println(retVal);
+    ModelNode retVal = client.execute(op)
+    System.out.println(retVal)
 }
 
 task ('add-ds', description:"Adds a data source named to AS7 using the Java API") << {
     def dsname = 'MigrateDS'
-    ModelControllerClient client = ModelControllerClient.Factory.create(InetAddress.getByName("localhost"), 9999);
+    CallbackHandler cb = getCallbackHandler("admin", "admin")
+    ModelControllerClient client = ModelControllerClient.Factory.create(InetAddress.getByName("localhost"), 9999, cb)
 
-    ModelNode op = new ModelNode();
-    op.get("operation").set("add");
-    ModelNode address = op.get("address");
-    address.add("subsystem", "datasources");
-    address.add("data-source", dsname);
-    op.get("jndi-name").set("java:jboss/datasources/" + dsname);
-    op.get("driver-name").set("h2");
-    op.get("pool-name").set("MigrateDS");
-    op.get("connection-url").set("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
+    ModelNode op = new ModelNode()
+    op.get("operation").set("add")
+    ModelNode address = op.get("address")
+    address.add("subsystem", "datasources")
+    address.add("data-source", dsname)
+    op.get("jndi-name").set("java:jboss/datasources/" + dsname)
+    op.get("driver-name").set("h2")
+    op.get("pool-name").set("MigrateDS")
+    op.get("user-name").set("sa")
+    op.get("password").set("sa")
+    op.get("connection-url").set("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1")
 
-    ModelNode retVal = client.execute(op);
-    System.out.println(retVal);
+    ModelNode retVal = client.execute(op)
+    System.out.println("Create datasource result:" + retVal)
+
+    ModelNode enable = new ModelNode()
+    enable.get("operation").set("enable")
+        
+    ModelNode addr = enable.get("address")
+    addr.add("subsystem", "datasources")
+    addr.add("data-source", dsname)
+    ModelNode result = client.execute(enable)
+    System.out.println("Enable datasource result: " + result)
+}
+
+private static CallbackHandler getCallbackHandler(final String username, final String password) {
+    return new CallbackHandler() {
+        public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
+            for (Callback current : callbacks) {
+                if (current instanceof NameCallback) {
+                    NameCallback ncb = (NameCallback) current;
+                    ncb.setName(username);
+                } else if (current instanceof PasswordCallback) {
+                    PasswordCallback pcb = (PasswordCallback) current;
+                    pcb.setPassword(password.toCharArray());
+                } else if (current instanceof RealmCallback) {
+                    RealmCallback rcb = (RealmCallback) current;
+                    rcb.setText(rcb.getDefaultText());
+                } else if (current instanceof RealmChoiceCallback) {
+                    // Ignored but not rejected.
+                } else {
+                    throw new UnsupportedCallbackException(current);
+                }
+            }
+        }
+    };
 }

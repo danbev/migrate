@@ -5,6 +5,7 @@ dependencies {
     deploy project(':war')
     deploy project(':ejb')
     deploy project(':version')
+    deploy project(path: ':war', configuration: 'archives')
 }
 
 allprojects {
@@ -19,7 +20,7 @@ allprojects {
 task wrapper(type: Wrapper) {
     group = 'Buildmaster'
     description = "Generates gradlew and gradlew.bat bootstrap scripts"
-    gradleVersion = '1.0-milestone-4'
+    gradleVersion = '1.0-milestone-6'
     jarFile = 'wrapper/gradle-wrapper.jar'
 }
 

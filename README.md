@@ -25,9 +25,9 @@ or on windows:
 The artifact produced will be located in _target/libs_.
 
 ## Starting AS7
-This example was tested using [JBoss AS 7.0.2.Final](http://download.jboss.org/jbossas/7.0/jboss-as-7.0.2.Final/jboss-as-7.0.2.Final.zip).
+This example was tested using [JBoss AS 7.1.0.Final](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.0.Final/jboss-as-7.1.0.Final.zip).
 
-    ./standalone.sh --server-config=standalone-preview.xml
+    ./standalone.sh -c standalone-full.xml
     
 
 ## Deploying
@@ -37,7 +37,6 @@ There are various ways to deploy to JBoss AS7:
 * Web Console (HTTP API) 
 * Java API 
 * File system deployment scanner
-
 
 
 ### Deploying the ear
@@ -61,164 +60,101 @@ If you find this annoying when playing with the app just remove the added scanne
 Now you'll get an error upon deployment which is expected as the point of the application is to show different
 issues that crop up when migrating. Follow the steps below to take care of the issues as the appear.
 
-# Step 1: Dependency upon pre-installed module <a id="module"/>
-Now deploy the application and you'll see the following error in the server console:
+# Step 1: JMS destination deployment error
+When you deploy the application the first time you'll get the following error in server console:
 
-    16:09:06,353 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) Starting deployment of "migrate.ear"
-    16:09:06,451 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) Starting deployment of "war.war"
-    16:09:06,451 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) Starting deployment of "ejb.jar"
-    16:09:06,517 INFO  [org.jboss.as.jpa] (MSC service thread 1-1) added javax.persistence.api dependency to migrate.ear
-    16:09:06,518 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) added javax.persistence.api dependency to ejb.jar
-    16:09:06,519 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) added javax.persistence.api dependency to war.war
-    16:09:06,537 INFO  [org.jboss.weld] (MSC service thread 1-3) Processing CDI deployment: migrate.ear
-    16:09:06,557 INFO  [org.jboss.weld] (MSC service thread 1-2) Processing CDI deployment: war.war
-    16:09:06,560 INFO  [org.jboss.weld] (MSC service thread 1-4) Processing CDI deployment: ejb.jar
-    16:09:06,562 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-4) JNDI bindings for session bean named GreeterBean in deployment unit subdeployment "ejb.jar" of deployment "migrate.ear" are as follows:
-    
-            java:global/migrate/ejb/GreeterBean!se.rl.migrate.ejb.GreeterRemote
-            java:app/ejb/GreeterBean!se.rl.migrate.ejb.GreeterRemote
-            java:module/GreeterBean!se.rl.migrate.ejb.GreeterRemote
-            java:global/migrate/ejb/GreeterBean!se.rl.migrate.ejb.GreeterLocal
-            java:app/ejb/GreeterBean!se.rl.migrate.ejb.GreeterLocal
-            java:module/GreeterBean!se.rl.migrate.ejb.GreeterLocal
-    
-    16:09:06,592 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting Services for CDI deployment: migrate.ear
-    16:09:06,668 INFO  [org.jboss.weld.Version] (MSC service thread 1-3) WELD-000900 1.1.2 (Final)
-    16:09:06,680 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting weld service
-    16:09:06,845 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-1) MSC00001: Failed to start service jboss.deployment.subunit."migrate.ear"."ejb.jar".INSTALL: org.jboss.msc.service.StartException in service jboss.deployment.subunit."migrate.ear"."ejb.jar".INSTALL: Failed to process phase INSTALL of subdeployment "ejb.jar" of deployment "migrate.ear"
-            at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:121)
-            at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1765)
-            at org.jboss.msc.service.ServiceControllerImpl$ClearTCCLTask.run(ServiceControllerImpl.java:2291)
-            at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886) [:1.6.0_26]
-            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908) [:1.6.0_26]
-            at java.lang.Thread.run(Thread.java:680) [:1.6.0_26]
-    Caused by: java.lang.RuntimeException: Error getting reflective information for class se.rl.migrate.ejb.GreeterBean
-            at org.jboss.as.server.deployment.reflect.DeploymentReflectionIndex.getClassIndex(DeploymentReflectionIndex.java:70)
-            at org.jboss.as.ee.component.EEModuleClassDescription$DefaultConfigurator.configure(EEModuleClassDescription.java:163)
-            at org.jboss.as.ee.component.EEClassConfigurationProcessor$1.compute(EEClassConfigurationProcessor.java:134)
-            at org.jboss.as.ee.component.EEClassConfigurationProcessor$1.compute(EEClassConfigurationProcessor.java:114)
-            at org.jboss.as.ee.component.LazyValue.get(LazyValue.java:40)
-            at org.jboss.as.ee.component.EEApplicationDescription.getClassConfiguration(EEApplicationDescription.java:183)
-            at org.jboss.as.ejb3.component.stateless.StatelessComponentDescription.createConfiguration(StatelessComponentDescription.java:76)
-            at org.jboss.as.ee.component.EEModuleConfigurationProcessor.deploy(EEModuleConfigurationProcessor.java:63)
-            at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:115)
-            ... 5 more
-    Caused by: java.lang.NoClassDefFoundError: Lorg/apache/log4j/Logger;
-            at java.lang.Class.getDeclaredFields0(Native Method) [:1.6.0_26]
-            at java.lang.Class.privateGetDeclaredFields(Class.java:2291) [:1.6.0_26]
-            at java.lang.Class.getDeclaredFields(Class.java:1743) [:1.6.0_26]
-            at org.jboss.as.server.deployment.reflect.ClassReflectionIndex.<init>(ClassReflectionIndex.java:57)
-            at org.jboss.as.server.deployment.reflect.DeploymentReflectionIndex.getClassIndex(DeploymentReflectionIndex.java:66)
-            ... 13 more
-    Caused by: java.lang.ClassNotFoundException: org.apache.log4j.Logger from [Module "deployment.migrate.ear.ejb.jar:main" from Service Module Loader]
-            at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:191)
-            at org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:358)
-            at org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:330)
-            at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:307)
-            at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:101)
-            ... 18 more
-        
-What we should notice is this line:
+    09:19:18,534 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-2) MSC00001: Failed to start service jboss.deployment.subunit."migrate.ear"."ejb.jar".PARSE: org.jboss.msc.service.StartException in service jboss.deployment.subunit."migrate.ear"."ejb.jar".PARSE: Failed to process phase PARSE of subdeployment "ejb.jar" of deployment "migrate.ear"
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:119) [jboss-as-server-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1811) [jboss-msc-1.0.2.GA.jar:1.0.2.GA]
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1746) [jboss-msc-1.0.2.GA.jar:1.0.2.GA]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886) [classes.jar:1.6.0_29]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908) [classes.jar:1.6.0_29]
+        at java.lang.Thread.run(Thread.java:680) [classes.jar:1.6.0_29]
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: JBAS011666: Could not parse file /Users/danbev/work/jboss/as/bundles/jboss-as-7.1.0.Final/standalone/tmp/vfs/deployment9c32baaf26eee6e9/ejb.jar-9e14ada594ca5798/contents/META-INF/hornetq-jms.xml
+        at org.jboss.as.messaging.deployment.MessagingXmlParsingDeploymentUnitProcessor.deploy(MessagingXmlParsingDeploymentUnitProcessor.java:76)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:113) [jboss-as-server-7.1.0.Final.jar:7.1.0.Final]
+        ... 5 more
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: JBAS011666: Could not parse file /Users/danbev/work/jboss/as/bundles/jboss-as-7.1.0.Final/standalone/tmp/vfs/deployment9c32baaf26eee6e9/ejb.jar-9e14ada594ca5798/contents/META-INF/hornetq-jms.xml
+        at org.jboss.as.messaging.deployment.MessagingXmlParsingDeploymentUnitProcessor.deploy(MessagingXmlParsingDeploymentUnitProcessor.java:73)
+        ... 6 more
+    Caused by: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[2,1]
+    Message: Unexpected element '{urn:hornetq}configuration'
+        at org.jboss.staxmapper.XMLMapperImpl.processNested(XMLMapperImpl.java:108)
+        at org.jboss.staxmapper.XMLMapperImpl.parseDocument(XMLMapperImpl.java:69)
+        at org.jboss.as.messaging.deployment.MessagingXmlParsingDeploymentUnitProcessor.deploy(MessagingXmlParsingDeploymentUnitProcessor.java:67)
+        ... 6 more
 
-    Caused by: java.lang.ClassNotFoundException: org.apache.log4j.Logger from [Module "deployment.migrate.ear.ejb.jar:main" from Service Module Loader]
-What this indicates is that with AS7 and its modularity we need to explicitely state that our application uses log4j.
-Since logj4 is a module that is shipped with AS7 we can be accomplished by setting a manifest header. Open _ejb/build.gradle_ and uncomment:
+From the above error message we can that AS7 cannot parse the _hornetq-jms.xml_ file. The syntax for jms deployments has been modified and needs to be updated
+to work with AS7. 
 
-    attributes 'Dependencies': 'org.apache.log4j'
-Now, rebuild the ear and redploy it.
+Open up [hornetq-jms.xml](migrate/blob/master/ejb/src/main/resources/META-INF/hornetq-jms.xml) and comment out the old version and uncomment the new configuration.
 
-    
-# Step 2: Adding a data source <a id="add-ds"/>
-When deploying the migrate ear this time the following error message will be displayed:
 
-    10:38:57,379 INFO  [org.jboss.weld] (MSC service thread 1-3) Starting Services for CDI deployment: migrate.ear
-    10:38:57,445 INFO  [org.jboss.weld.Version] (MSC service thread 1-3) WELD-000900 1.1.2 (Final)
-    10:38:58,322 INFO  [org.jboss.as.server.controller] (pool-3-thread-3) Deployment of "migrate.ear" was rolled back with failure message {"Services with missing/unavailable dependencies" => ["jboss.persistenceunit.\"migrate.ear/ejb.jar#MigrateUnit\" missing [ jboss.naming.context.java.jboss.datasources.MigrateDS ]"]}
-    10:38:58,376 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment war.war in 53ms
-    10:38:58,377 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment ejb.jar in 53ms
-    10:38:58,379 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) Stopped deployment migrate.ear in 56ms
-The "_missing [ jboss.naming.context.java.jboss.datasources.MigrateDS ]_" tells us that a data source is missing.
-
-The example application uses entity beans to persist data and hence requires a data source to be installed. With AS7, datasources
-are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a data source using any of the
-administration consoles. We will demonstrate two alternatives here, CLI and Java API
-
-Example using the CLI:
-
-    /subsystem=datasources/data-source=MigrateDS:add(jndi-name=java:jboss/datasources/MigrateDS, pool-name=MigrateDS, driver-name=h2, connection-url=jdbc:h2:mem:test;DB_CLOSE_DELAY=-1)
-    
-Example using Groovy and the Java API:  
-Change into the _management_ directory and run the [add-ds](migrate/blob/master/management/build.gradle) command:
-
-    ../gradlew add-ds 
-    
-    
-If you check the server console log you will see the following:
-
-    INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) Bound data source [java:jboss/datasources/MigrateDS2]
-    
-Next, redeploy the migrate.ear using CLI:
-
-    /deployment=migrate.ear:redeploy
-    
-
-# Step 3: Deploying a JMS Queue <a id="add-queue"/>
-When redploying the migrate.ear you get the following error in the server console:
-
-    10:41:55,912 INFO  [org.jboss.weld] (MSC service thread 1-4) Starting weld service
-    10:41:56,502 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) awaiting topic/queue creation queue/GreeterQueue
-    10:41:56,552 INFO  [org.jboss.web] (MSC service thread 1-3) registering web context: /war
-    10:41:56,579 INFO  [org.jboss.as.server.controller] (pool-3-thread-13) Redeployed "migrate.ear"
-    10:41:56,579 INFO  [org.jboss.as.server.controller] (pool-3-thread-13) Undeployed "migrate.ear"
-    10:41:58,502 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) Attempting to reconnect org.hornetq.ra.inflow.HornetQActivationSpec(ra=org.hornetq.ra.HornetQResourceAdapter@374131a8 destination=queue/GreeterQueue destinationType=javax.jms.Queue ack=Auto-acknowledge durable=false clientID=null user=null maxSession=15)
-    10:41:58,509 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) awaiting topic/queue creation queue/GreeterQueue
-    10:42:00,509 INFO  [org.hornetq.ra.inflow.HornetQActivation] (jca-short-running-threads-threads - 1) Attempting to reconnect org.hornetq.ra.inflow.HornetQActivationSpec(ra=org.hornetq.ra.HornetQResourceAdapter@374131a8 destination=queue/GreeterQueue destinationType=javax.jms.Queue ack=Auto-acknowledge durable=false clientID=null user=null maxSession=15)
-    
-The example application uses a JMS queue which needs to added to AS7. In previous versions of JBoss AS one could package a queue definition file
-with the deployment and it would be deployed with the application. With AS7, JMS destinations (queues and topics)
-are configured in a central location, either in domain.xml or standalone.xml. One can add/modify a JMS destination using 
-any of the administration consoles. We will demonstrate two alternatives here, CLI and Java API.  
-Example using the CLI:
-
-	/subsystem=messaging/jms-queue=GreeterQueue:add(entries=["queue/GreeterQueue"],durable=false)
-
-Example using Groovy and the Java API:  
-Change into the _management_ directory and run the [add-queue](migrate/blob/master/management/build.gradle) command:
-
-    ../gradlew add-queue 
-
-If you check the server console log you will see the following:
-    
-    INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) trying to deploy queue jms.queue.GreeterQueue
-    INFO  [org.jboss.as.messaging.jms.AS7BindingRegistry] (MSC service thread 1-1) Bound messaging object to jndi name java:/queue/GreeterQueue
-    
- 
-
-# Step 4: Dependency upon custom module <a id="cmodule"/>
-After successfully deploying migrate.ear as explained in the previous section we are now ready to run the app. 
-Open a web browser and open the following url; http://localhost:8080/war
+# Step 2: Dependency upon pre-installed module 
+After successfully deploying migrate.ear we are now ready to run the app. 
+Open a web browser and open the following url: [http://localhost:8080/war](http://localhost:8080/war)
 
 The page presented is a very simple jsp page with a input form. The idea is that you enter your name and hit the send button.
 In the background the name you entered will be sent to a JMS Queue named _GreetingQueue_. A Message Driven Bean is listening
 to this queue and will be triggered.
-Try this out and you'll see that another issue will be exposed:
+Now deploy the application and you'll see the following error in the server console:
 
-    09:56:55,000 ERROR [org.hornetq.ra.inflow.HornetQMessageHandler] (Thread-7 (group:HornetQ-client-global-threads-479435515)) Failed to deliver message: java.lang.NoClassDefFoundError: se/rl/util/SomeUtil
-        at se.rl.migrate.mdb.GreeterMDB.logConstruction(GreeterMDB.java:26)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [:1.6.0_26]
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) [:1.6.0_26]
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) [:1.6.0_26]
-        at java.lang.reflect.Method.invoke(Method.java:597) [:1.6.0_26]
-        at org.jboss.as.ee.component.ManagedReferenceLifecycleMethodInterceptor.processInvocation(ManagedReferenceLifecycleMethodInterceptor.java:69)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:287)
-        at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:287)
-        at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:73)
-        ...
+    10:00:29,868 ERROR [org.jboss.ejb3.invocation] (Thread-8 (HornetQ-client-global-threads-2416231)) JBAS014134: EJB Invocation failed on component GreeterMDB for method public abstract void javax.jms.MessageListener.onMessage(javax.jms.Message): javax.ejb.EJBTransactionRolledbackException: Unexpected Error
+        at org.jboss.as.ejb3.tx.CMTTxInterceptor.handleInCallerTx(CMTTxInterceptor.java:133) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInCallerTx(CMTTxInterceptor.java:204) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.as.ejb3.tx.CMTTxInterceptor.required(CMTTxInterceptor.java:306) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.as.ejb3.tx.CMTTxInterceptor.processInvocation(CMTTxInterceptor.java:190) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.as.ejb3.component.interceptors.CurrentInvocationContextInterceptor.processInvocation(CurrentInvocationContextInterceptor.java:41) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.as.ejb3.component.interceptors.LoggingInterceptor.processInvocation(LoggingInterceptor.java:59) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.as.ee.component.NamespaceContextInterceptor.processInvocation(NamespaceContextInterceptor.java:50) [jboss-as-ee-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.as.ejb3.component.interceptors.AdditionalSetupInterceptor.processInvocation(AdditionalSetupInterceptor.java:43) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.as.ejb3.component.messagedriven.MessageDrivenComponentDescription$4$1.processInvocation(MessageDrivenComponentDescription.java:177) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.as.ee.component.TCCLInterceptor.processInvocation(TCCLInterceptor.java:45) [jboss-as-ee-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:61) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.as.ee.component.ViewService$View.invoke(ViewService.java:165) [jboss-as-ee-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.as.ee.component.ViewDescription$1.processInvocation(ViewDescription.java:173) [jboss-as-ee-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:61) [jboss-invocation-1.1.1.Final.jar:1.1.1.Final]
+        at org.jboss.as.ee.component.ProxyInvocationHandler.invoke(ProxyInvocationHandler.java:72) [jboss-as-ee-7.1.0.Final.jar:7.1.0.Final]
+        at javax.jms.MessageListener$$$view1.onMessage(Unknown Source) [jboss-jms-api_1.1_spec-1.0.0.Final.jar:1.0.0.Final]
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [classes.jar:1.6.0_29]
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) [classes.jar:1.6.0_29]
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) [classes.jar:1.6.0_29]
+        at java.lang.reflect.Method.invoke(Method.java:597) [classes.jar:1.6.0_29]
+        at org.jboss.as.ejb3.inflow.MessageEndpointInvocationHandler.doInvoke(MessageEndpointInvocationHandler.java:140) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at org.jboss.as.ejb3.inflow.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:73) [jboss-as-ejb3-7.1.0.Final.jar:7.1.0.Final]
+        at $Proxy32.onMessage(Unknown Source)   at org.hornetq.ra.inflow.HornetQMessageHandler.onMessage(HornetQMessageHandler.java:278)
+        at org.hornetq.core.client.impl.ClientConsumerImpl.callOnMessage(ClientConsumerImpl.java:983)
+        at org.hornetq.core.client.impl.ClientConsumerImpl.access$400(ClientConsumerImpl.java:48)
+        at org.hornetq.core.client.impl.ClientConsumerImpl$Runner.run(ClientConsumerImpl.java:1113)
+        at org.hornetq.utils.OrderedExecutorFactory$OrderedExecutor$1.run(OrderedExecutorFactory.java:100)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886) [classes.jar:1.6.0_29]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908) [classes.jar:1.6.0_29]
+        at java.lang.Thread.run(Thread.java:680) [classes.jar:1.6.0_29]    
+    Caused by: java.lang.NoClassDefFoundError: se/rl/util/SomeUtil
+        at se.rl.migrate.mdb.GreeterMDB.logConstruction(GreeterMDB.java:27) [ejb.jar:]
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [classes.jar:1.6.0_29]
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39) [classes.jar:1.6.0_29]
+    Caused by: java.lang.ClassNotFoundException: se.rl.util.SomeUtil from [Module "deployment.migrate.ear.ejb.jar:main" from Service Module Loader]
+        at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:190)
+        at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:468)
+        at org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:456)
+        at org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:423)
+        at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:398)
+        at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:120)
+        ... 72 more
+        
 From the stacktrace we can see that the error is being thrown from [GreeterMDB](migrate/blob/master/ejb/src/main/java/se/rl/migrate/mdb/GreeterMDB.java)'s
-logConstruction method. This method is using a class named [SomeUtil](migrate/blob/master/module/src/main/java/se/rl/util/SomeUtil.java) which is not packaged in the jar file. So, could
-we fix this issue the same way as we did for the previous one. Well, it turns out we can but for this to work we need to create a module for it. This was not required by the previous task because
-log4j is a pre-installed module that is shipped with JBoss AS7. Our use case here is that we have a utility jar that multiple applications can use, not only our migrate.ear. So lets install a custom
+logConstruction method. This method is using a class named [SomeUtil](migrate/blob/master/module/src/main/java/se/rl/util/SomeUtil.java) which is not packaged in the jar file. 
+
+The use case here is that we have a utility jar that multiple applications can use, not only our migrate.ear. So lets install a custom
 module.
 
 First we need to build the _module_ project:
@@ -248,15 +184,17 @@ Notice that _standalone.sh_ contains two entries for the modules path argument (
          
 Now we only need to add this dependency to our ejb project. Open _ejb/build.gradle_ and 'se.rl.util:1.0' as a dependency:
 
-    attributes 'Dependencies': 'org.apache.log4j,se.rl.util:1.0'
+    attributes 'Dependencies': 'se.rl.util:1.0'
     
 Creating a custom module as explained above is great if you have multiple applications that use the same module. The downside to this
 is that you have to maintain this directory structure and the modules have to be available of all installations if you are running in a cluster.
 
-## Step 4b: Alternatively adding a module as a deployment <a id="dmodule"/>
+## Step 2b: Alternatively adding a module as a deployment 
 With AS7 you also have the option to configure a module with a deployment. You can package a [META-INF/jboss-deployment-structure.xml](migrate/blob/master/module/src/main/resources/META-INF/jboss-deployment-structure.xml) 
-with your deployment or as a separate deployment. Notice how the name of such a module is prefixed with _deployment_ which means
-that you'll have to update you dependencis manifest headers.
+with your deployment or as a separate deployment. 
+
+Notice how the name of such a module is prefixed with _deployment_ which means
+that you'll have to update you dependencies manifest headers.
 To try this out we need to revert the change to _standalone.sh_ and remove the _user-modules_ directory that we added. It should now looks like it did from the start:
 
     -mp \"$JBOSS_HOME/modules\" \
@@ -267,11 +205,12 @@ to the server is enough to enable this module:
     
 Next, we have to update the dependency manifest header in _ejb/build.gradle_ to depend on a deployable module:
 
-    attributes 'Dependencies': 'org.apache.log4j, deployment.se.rl.util:1.0'
-Now redeploy migrate.ear and re-run the application. 
+    attributes 'Dependencies': 'deployment.se.rl.util:1.0'
     
+Now redeploy migrate.ear and re-run the application. 
 
-# Step 5. Dependency on jar in deployment archive  <a id="dep"/>
+    
+# Step 3. Dependency on jar in deployment archive 
 Re-build and deploy migrate.ear and re-run the application again. The following error will be displayed:
 
     Caused by: java.lang.NoClassDefFoundError: se/rl/migrate/Version

@@ -1,26 +1,30 @@
 apply plugin: 'java'
 
+as7Version = '7.1.0.Final'
+
 dependencies {
-    compile 'javax:javaee-api:6.0'
+    // Remote EJB Client dependencies
+    compile "org.jboss.as:jboss-as-ejb-client-bom:${as7Version}"
+    compile "org.jboss.as:jboss-as-jms-client-bom:${as7Version}"
+    compile 'javax.persistence:persistence-api:1.0'
+
     compile 'log4j:log4j:1.2.16'
     compile project(':version')
     compile project(':module')
 
     testCompile "org.hornetq:hornetq-core-client:2.2.5.Final"
     testCompile "org.jboss.netty:netty:3.2.1.Final"
+    testCompile 'junit:junit:4.8.1'
 }
 
 jar {
     manifest {
-        // 1. Enable the Dependencies attribute to fix deployment error: Caused by: java.lang.NoClassDefFoundError: Lorg/apache/log4j/Logger;
-        //attributes 'Dependencies': 'org.apache.log4j'
-
         // 2 a) Enable this ejb to have access to the custom module 'se.rl.util' version '1.0'
-        //attributes 'Dependencies': 'org.apache.log4j, se.rl.util:1.0'
-        //   b) Alternatively this ejb to have access to the custom deployable module 'deployment.se.rl.util' version '1.0'
-        //attributes 'Dependencies': 'org.apache.log4j, deployment.se.rl.util:1.0'
+        //attributes 'Dependencies': 'se.rl.util:1.0'
+        //   b) Alternatively enable this ejb to have access to the custom deployable module 'deployment.se.rl.util' version '1.0'
+        //attributes 'Dependencies': 'deployment.se.rl.util:1.0'
 
-        // 3 a. Enable this ejb to have access to a the version.jar
+        // 3 Enable this ejb to have access to a the version.jar
         //attributes 'Class-Path': 'version.jar'
     }
 }
