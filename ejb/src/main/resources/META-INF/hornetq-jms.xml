@@ -1,6 +1,20 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Older version of JMS deployment configuration -->
 <configuration xmlns="urn:hornetq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hornetq /schema/hornetq-jms.xsd">
    <queue name="GreeterQueue">
        <entry name="java:/queue/GreeterQueue"/>
    </queue>
 </configuration>
+
+<!-- AS7 version of JMS deployment configuration 
+<messaging-deployment xmlns="urn:jboss:messaging-deployment:1.0">
+	<hornetq-server>
+		<jms-destinations>
+			<jms-queue name="GreeterQueue">
+				<entry name="java:/queue/GreeterQueue"/>
+				<durable>true</durable>
+			</jms-queue>
+		</jms-destinations>
+	</hornetq-server>
+</messaging-deployment>
+-->

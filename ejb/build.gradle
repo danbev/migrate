@@ -1,11 +1,13 @@
 apply plugin: 'java'
 
+as7Version = '7.1.0.Final'
+
 dependencies {
     // Remote EJB Client dependencies
-    compile 'org.jboss.spec.javax.ejb:jboss-ejb-api_3.1_spec:1.0.1.Final'
-    compile 'org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.0.Final'
+    compile "org.jboss.as:jboss-as-ejb-client-bom:${as7Version}"
+    compile "org.jboss.as:jboss-as-jms-client-bom:${as7Version}"
+    compile 'javax.persistence:persistence-api:1.0'
 
-    compile 'javax:javaee-api:6.0'
     compile 'log4j:log4j:1.2.16'
     compile project(':version')
     compile project(':module')
@@ -13,29 +15,16 @@ dependencies {
     testCompile "org.hornetq:hornetq-core-client:2.2.5.Final"
     testCompile "org.jboss.netty:netty:3.2.1.Final"
     testCompile 'junit:junit:4.8.1'
-
-    // Remote EJB Client dependencies
-    testCompile 'org.jboss:jboss-ejb-client:1.0.0.Beta11'
-    testCompile 'org.jboss.marshalling:jboss-marshalling:1.3.4.GA'
-    testCompile 'org.jboss.xnio:xnio-api:3.0.0.GA'
-    testCompile 'org.jboss.xnio:xnio-nio:3.0.0.GA'
-    testCompile 'org.jboss.remoting3:jboss-remoting:-3.2.0.CR8'
-    testCompile 'org.jboss.logging:jboss-logging:3.1.0.CR2'
-    testCompile 'org.jboss.sasl:jboss-sasl:1.0.0.Beta9'
-    testCompile 'org.jboss.marshalling:jboss-marshalling-river:1.3.4.GA'
 }
 
 jar {
     manifest {
-        // 1. Enable the Dependencies attribute to fix deployment error: Caused by: java.lang.NoClassDefFoundError: Lorg/apache/log4j/Logger;
-        //attributes 'Dependencies': 'org.apache.log4j'
-
         // 2 a) Enable this ejb to have access to the custom module 'se.rl.util' version '1.0'
-        //attributes 'Dependencies': 'org.apache.log4j, se.rl.util:1.0'
-        //   b) Alternatively this ejb to have access to the custom deployable module 'deployment.se.rl.util' version '1.0'
-        //attributes 'Dependencies': 'org.apache.log4j, deployment.se.rl.util:1.0'
+        //attributes 'Dependencies': 'se.rl.util:1.0'
+        //   b) Alternatively enable this ejb to have access to the custom deployable module 'deployment.se.rl.util' version '1.0'
+        //attributes 'Dependencies': 'deployment.se.rl.util:1.0'
 
-        // 3 a. Enable this ejb to have access to a the version.jar
+        // 3 Enable this ejb to have access to a the version.jar
         //attributes 'Class-Path': 'version.jar'
     }
 }
