@@ -11,7 +11,7 @@ active on a single node in the cluster.
 ## Starting a JBoss AS 7 Cluster
 ### Start the first node:
 
-    $./standalone.sh -c standalone-ha.xml -Djboss.node.name=one Djboss.server.data.dir=/tmp/one
+    $./standalone.sh -c standalone-ha.xml -Djboss.node.name=one -Djboss.server.data.dir=/tmp/one
     
 ### Start the seconde node:
     $./standalone.sh -c standalone-ha.xml -Djboss.node.name=two -Djboss.server.data.dir=/tmp/two -Djboss.socket.binding.port-offset=100
