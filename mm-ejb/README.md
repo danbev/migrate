@@ -14,7 +14,8 @@ Copy target/lib/mm-ejb.jar to $AS7/standalone/deployments
 
 # Running the client
 To run the client manually from Eclipse simply run:
-se.rl.migrate.ejb.CustomerBeanClient.jar
+
+    se.rl.migrate.ejb.CustomerBeanClient.java
 
 This should be successful. To simulate the error, right click the 'mm_ejb' project and remove the 'domain' project as 
 a project dependency. 
