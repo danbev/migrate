@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+as7Version = '7.1.1.Final'
+
+dependencies {
+    // Remote EJB Client dependencies
+    compile "org.jboss.as:jboss-as-ejb-client-bom:${as7Version}"
+    compile project(':domain')
+    compile 'log4j:log4j:1.2.16'
+    testCompile 'junit:junit:4.8.1'
+}
+
+jar {
+    manifest {
+        attributes 'Dependencies': 'rl.domain'
+    }   
+}
+
+repositories {
+    mavenRepo urls: ['https://repository.jboss.org/nexus/content/groups/public/']
+}
