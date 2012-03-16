@@ -18,6 +18,8 @@ public class CustomerBean implements CustomerLocal, CustomerRemote {
     }
 
     public CustomerImpl getCustomer() {
-		return new CustomerImpl(new Id(10));
+        final Id id = new Id(10);
+        System.out.println("Getting customer " + id);
+		return new CustomerImpl(id);
     }
 }

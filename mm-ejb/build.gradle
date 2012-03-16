@@ -3,11 +3,33 @@ apply plugin: 'java'
 as7Version = '7.1.1.Final'
 
 dependencies {
+	compile fileTree(dir: 'lib', include: 'PMLExternal-3.0.1-SNAPSHOT-jar-with-dependencies.jar')
+    compile project(':domain')
+
+	/*	
     // Remote EJB Client dependencies
-    compile "org.jboss.as:jboss-as-ejb-client-bom:${as7Version}"
+    compile 'org.jboss.spec.javax.ejb:jboss-ejb-api_3.1_spec:1.0.1.Final'
+    compile 'org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.0.Final'
+
+    
+    testCompile ('org.jboss:jboss-ejb-client:1.0.2.Final') {
+        exclude group: 'org.jboss.marshalling'
+    }
+    testCompile 'org.jboss.marshalling:jboss-marshalling:1.3.0.GA'
+    testCompile('org.jboss.marshalling:jboss-marshalling-river:1.3.9.GA') {
+        exclude group: 'org.jboss.marshalling'
+    }
+    testCompile 'org.jboss.xnio:xnio-api:3.0.3.GA'
+    testCompile 'org.jboss.xnio:xnio-nio:3.0.3.GA'
+    testCompile 'org.jboss.remoting3:jboss-remoting:3.2.2.GA'
+    testCompile 'org.jboss.logging:jboss-logging:3.1.0.GA'
+    testCompile 'org.jboss.sasl:jboss-sasl:1.0.0.Final'
+    
+    //compile "org.jboss.as:jboss-as-ejb-client-bom:${as7Version}"
     compile project(':domain')
     compile 'log4j:log4j:1.2.16'
     testCompile 'junit:junit:4.8.1'
+	*/
 }
 
 jar {
