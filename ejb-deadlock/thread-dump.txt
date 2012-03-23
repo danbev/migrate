@@ -1,0 +1,1388 @@
+2012-03-23 13:14:08
+Full thread dump Java HotSpot(TM) Client VM (17.1-b03-307 mixed mode):
+
+"EJB default - 10" prio=5 tid=000000000194e000 nid=0xb407f000 waiting on condition [00000000b407e000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007dc80f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"EJB default - 9" prio=5 tid=0000000002877400 nid=0xb3f7d000 waiting on condition [00000000b3f7c000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007dc80f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"EJB default - 8" prio=5 tid=0000000002875c00 nid=0xb3e7b000 waiting on condition [00000000b3e7a000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007dc80f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"EJB default - 7" prio=5 tid=000000000191c400 nid=0xb3d79000 waiting on condition [00000000b3d78000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007dc80f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"Attach Listener" daemon prio=9 tid=0000000002a16800 nid=0xb3c77000 waiting on condition [0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"EJB default - 6" prio=5 tid=0000000002a12000 nid=0xb3b75000 waiting on condition [00000000b3b74000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007dc80f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"EJB default - 5" prio=5 tid=0000000002a10400 nid=0xb3a73000 waiting on condition [00000000b3a72000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007dc80f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"EJB default - 4" prio=5 tid=0000000002a10c00 nid=0xb3971000 in Object.wait() [00000000b3970000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <00000000056972d0> (a org.jboss.remoting3.remote.OutboundMessage)
+	at java.lang.Object.wait(Object.java:485)
+	at org.jboss.remoting3.remote.OutboundMessage$1.accept(OutboundMessage.java:91)
+	- locked <00000000056972d0> (a org.jboss.remoting3.remote.OutboundMessage)
+	at org.xnio.streams.BufferPipeOutputStream.send(BufferPipeOutputStream.java:125)
+	at org.xnio.streams.BufferPipeOutputStream.send(BufferPipeOutputStream.java:113)
+	at org.xnio.streams.BufferPipeOutputStream.getBuffer(BufferPipeOutputStream.java:77)
+	at org.xnio.streams.BufferPipeOutputStream.write(BufferPipeOutputStream.java:86)
+	- locked <0000000005697300> (a org.xnio.streams.BufferPipeOutputStream)
+	at org.jboss.remoting3.remote.OutboundMessage.write(OutboundMessage.java:168)
+	at java.io.DataOutputStream.write(DataOutputStream.java:71)
+	- locked <00000000056972b8> (a java.io.DataOutputStream)
+	at org.jboss.as.ejb3.remote.protocol.versionone.AbstractMessageHandler$1.write(AbstractMessageHandler.java:188)
+	at java.io.OutputStream.write(OutputStream.java:99)
+	at org.jboss.marshalling.OutputStreamByteOutput.write(OutputStreamByteOutput.java:56)
+	at org.jboss.marshalling.SimpleDataOutput.flush(SimpleDataOutput.java:311)
+	at org.jboss.marshalling.SimpleDataOutput.write(SimpleDataOutput.java:82)
+	at org.jboss.marshalling.river.BlockMarshaller.flush(BlockMarshaller.java:306)
+	at org.jboss.marshalling.river.RiverMarshaller.writeEndBlock(RiverMarshaller.java:961)
+	at org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1008)
+	at org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:885)
+	at org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:825)
+	at org.jboss.marshalling.river.RiverMarshaller.doWriteFields(RiverMarshaller.java:1063)
+	at org.jboss.marshalling.river.RiverMarshaller.doWriteSerializableObject(RiverMarshaller.java:1019)
+	at org.jboss.marshalling.river.RiverMarshaller.doWriteObject(RiverMarshaller.java:885)
+	at org.jboss.marshalling.AbstractObjectOutput.writeObject(AbstractObjectOutput.java:62)
+	at org.jboss.marshalling.AbstractMarshaller.writeObject(AbstractMarshaller.java:119)
+	at org.jboss.as.ejb3.remote.protocol.versionone.MethodInvocationMessageHandler.writeMethodInvocationResponse(MethodInvocationMessageHandler.java:338)
+	at org.jboss.as.ejb3.remote.protocol.versionone.MethodInvocationMessageHandler.access$500(MethodInvocationMessageHandler.java:64)
+	at org.jboss.as.ejb3.remote.protocol.versionone.MethodInvocationMessageHandler$1.run(MethodInvocationMessageHandler.java:226)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- <0000000008350f48> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+
+"EJB default - 3" prio=5 tid=0000000001801400 nid=0xb356b000 waiting on condition [00000000b356a000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007dc80f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"EJB default - 2" prio=5 tid=000000000287a000 nid=0xb3469000 waiting on condition [00000000b3468000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007dc80f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"EJB default - 1" prio=5 tid=00000000028ec000 nid=0xb3367000 waiting on condition [00000000b3366000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007dc80f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"Remoting "beve-7719" task-4" prio=5 tid=0000000001b54c00 nid=0xb3265000 waiting on condition [00000000b3264000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007761478> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at org.xnio.LimitedBlockingQueue.take(LimitedBlockingQueue.java:95)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Remoting "beve-7719" task-3" prio=5 tid=00000000028ea000 nid=0xb3163000 waiting on condition [00000000b3162000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007761478> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at org.xnio.LimitedBlockingQueue.take(LimitedBlockingQueue.java:95)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Remoting "beve-7719" task-2" prio=5 tid=0000000001b53000 nid=0xb3061000 waiting on condition [00000000b3060000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007761478> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at org.xnio.LimitedBlockingQueue.take(LimitedBlockingQueue.java:95)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Remoting "beve-7719" task-1" prio=5 tid=0000000001a08000 nid=0xb2f5f000 waiting on condition [00000000b2f5e000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007761478> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at org.xnio.LimitedBlockingQueue.take(LimitedBlockingQueue.java:95)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-29 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000002931400 nid=0xb2e5d000 waiting on condition [00000000b2e5c000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-28 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000002930400 nid=0xb2d5b000 waiting on condition [00000000b2d5a000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-27 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=000000000292f400 nid=0xb2c59000 waiting on condition [00000000b2c58000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-26 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000028be800 nid=0xb2b57000 waiting on condition [00000000b2b56000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-25 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000028bd800 nid=0xb2a55000 waiting on condition [00000000b2a54000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-24 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000028bcc00 nid=0xb2953000 waiting on condition [00000000b2952000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-23 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000002923000 nid=0xb2851000 waiting on condition [00000000b2850000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-22 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000002922000 nid=0xb274f000 waiting on condition [00000000b274e000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-21 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=000000000292dc00 nid=0xb264d000 waiting on condition [00000000b264c000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-20 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=000000000292d000 nid=0xb254b000 waiting on condition [00000000b254a000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-19 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=000000000292c400 nid=0xb2449000 waiting on condition [00000000b2448000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-18 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000028ba400 nid=0xb2347000 waiting on condition [00000000b2346000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-17 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000001a1e800 nid=0xb2245000 waiting on condition [00000000b2244000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-16 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=000000000293d000 nid=0xb2143000 waiting on condition [00000000b2142000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-15 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000001a1c000 nid=0xb2041000 waiting on condition [00000000b2040000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-14 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000019dbc00 nid=0xb1f3f000 waiting on condition [00000000b1f3e000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-13 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000002902800 nid=0xb1e3d000 waiting on condition [00000000b1e3c000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-12 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000028c5c00 nid=0xb1d3b000 waiting on condition [00000000b1d3a000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-11 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000028c2c00 nid=0xb1c39000 waiting on condition [00000000b1c38000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-10 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000002928800 nid=0xb1b37000 waiting on condition [00000000b1b36000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-9 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000002925000 nid=0xb1a35000 waiting on condition [00000000b1a34000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-0 (HornetQ-client-global-threads-5751300)" daemon prio=5 tid=0000000002972000 nid=0xb1933000 waiting on condition [00000000b1932000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <000000000815be80> (a java.util.concurrent.SynchronousQueue$TransferStack)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:424)
+	at java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:323)
+	at java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:874)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:945)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-2 (HornetQ-remoting-threads-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-30980209-20254712)" prio=5 tid=00000000019db400 nid=0xb1831000 waiting on condition [00000000b1830000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007e2bd60> (a java.util.concurrent.SynchronousQueue$TransferStack)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:424)
+	at java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:323)
+	at java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:874)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:945)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-0 (HornetQ-client-global-scheduled-threads-25341025)" daemon prio=5 tid=00000000019c0c00 nid=0xb172f000 waiting on condition [00000000b172e000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000008144938> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2025)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:164)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:609)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:602)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"hornetq-failure-check-thread" prio=5 tid=00000000029ed800 nid=0xb8303000 in Object.wait() [00000000b8302000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007e272c0> (a org.hornetq.core.remoting.server.impl.RemotingServiceImpl$FailureCheckAndFlushThread)
+	at org.hornetq.core.remoting.server.impl.RemotingServiceImpl$FailureCheckAndFlushThread.run(RemotingServiceImpl.java:645)
+	- locked <0000000007e272c0> (a org.hornetq.core.remoting.server.impl.RemotingServiceImpl$FailureCheckAndFlushThread)
+
+   Locked ownable synchronizers:
+	- None
+
+"Old I/O server boss ([id: 0x00a0829c, localhost/127.0.0.1:5455])" prio=5 tid=0000000001b14c00 nid=0xb8201000 runnable [00000000b8200000]
+   java.lang.Thread.State: RUNNABLE
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:390)
+	- locked <0000000007e2e468> (a java.net.SocksSocketImpl)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:453)
+	at java.net.ServerSocket.accept(ServerSocket.java:421)
+	at org.jboss.netty.channel.socket.oio.OioServerSocketPipelineSink$Boss.run(OioServerSocketPipelineSink.java:202)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:44)
+	at org.jboss.netty.util.VirtualExecutorService$ChildExecutorRunnable.run(VirtualExecutorService.java:181)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- <0000000007e2b0a8> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+	- <0000000007e2e960> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+
+"Old I/O server boss ([id: 0x00937cea, localhost/127.0.0.1:5445])" prio=5 tid=0000000001b14800 nid=0xb80ff000 runnable [00000000b80fe000]
+   java.lang.Thread.State: RUNNABLE
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:390)
+	- locked <0000000007e45bb8> (a java.net.SocksSocketImpl)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:453)
+	at java.net.ServerSocket.accept(ServerSocket.java:421)
+	at org.jboss.netty.channel.socket.oio.OioServerSocketPipelineSink$Boss.run(OioServerSocketPipelineSink.java:202)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:44)
+	at org.jboss.netty.util.VirtualExecutorService$ChildExecutorRunnable.run(VirtualExecutorService.java:181)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- <0000000007e2e948> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+	- <0000000007e3a980> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+
+"Thread-8 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000001b02800 nid=0xb7ffd000 waiting on condition [00000000b7ffc000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-7 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000001b01c00 nid=0xb7efb000 waiting on condition [00000000b7efa000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-6 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000001b00c00 nid=0xb7df9000 waiting on condition [00000000b7df8000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-5 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000029ec800 nid=0xb7cf7000 waiting on condition [00000000b7cf6000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-4 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000029eb800 nid=0xb7bf5000 waiting on condition [00000000b7bf4000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-3 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000029eac00 nid=0xb7af3000 waiting on condition [00000000b7af2000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-2 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=00000000029e9c00 nid=0xb79f1000 waiting on condition [00000000b79f0000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-1 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000001b00000 nid=0xb78ef000 waiting on condition [00000000b78ee000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-0 (HornetQ-server-HornetQServerImpl::serverUUID=b80db7ae-6d0b-11e1-96e8-0026bb609b40-1606812)" prio=5 tid=0000000001aff800 nid=0xb77ed000 waiting on condition [00000000b77ec000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b8f0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-0 (HornetQ-Asynchronous-Persistent-Writes6004953-19791974)" daemon prio=5 tid=0000000001afec00 nid=0xb76eb000 waiting on condition [00000000b76ea000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007b7dcb0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-4 (HornetQ-scheduled-threads-25135468)" prio=5 tid=0000000001afe000 nid=0xb75e9000 runnable [00000000b75e8000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b618> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2025)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:164)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:609)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:602)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-3 (HornetQ-scheduled-threads-25135468)" prio=5 tid=0000000001b0f400 nid=0xb74e7000 runnable [00000000b74e6000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b618> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2025)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:164)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:609)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:602)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-2 (HornetQ-scheduled-threads-25135468)" prio=5 tid=0000000001b0ec00 nid=0xb73e5000 runnable [00000000b73e4000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b618> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2025)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:164)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:609)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:602)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-1 (HornetQ-scheduled-threads-25135468)" prio=5 tid=00000000029d4400 nid=0xb72e3000 runnable [00000000b72e2000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b618> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2025)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:164)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:609)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:602)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Transaction Reaper Worker 0" daemon prio=5 tid=0000000001a28800 nid=0xb71e1000 in Object.wait() [00000000b71e0000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007e38550> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:485)
+	at com.arjuna.ats.arjuna.coordinator.TransactionReaper.waitForCancellations(TransactionReaper.java:321)
+	- locked <0000000007e38550> (a java.util.LinkedList)
+	at com.arjuna.ats.internal.arjuna.coordinator.ReaperWorkerThread.run(ReaperWorkerThread.java:65)
+
+   Locked ownable synchronizers:
+	- None
+
+"Transaction Reaper" daemon prio=5 tid=0000000001ae7000 nid=0xb70df000 in Object.wait() [00000000b70de000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007e42058> (a com.arjuna.ats.arjuna.coordinator.TransactionReaper)
+	at com.arjuna.ats.internal.arjuna.coordinator.ReaperThread.run(ReaperThread.java:90)
+	- locked <0000000007e42058> (a com.arjuna.ats.arjuna.coordinator.TransactionReaper)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-76" prio=5 tid=00000000029d1c00 nid=0xb6fdd000 runnable [00000000b6fdc000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:136)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:69)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:69)
+	- locked <0000000007b900c0> (a sun.nio.ch.Util$1)
+	- locked <0000000007b900b0> (a java.util.Collections$UnmodifiableSet)
+	- locked <0000000007b8fec0> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:80)
+	at org.jboss.sun.net.httpserver.ServerImpl$Dispatcher.run(ServerImpl.java:382)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"server-timer1" daemon prio=5 tid=00000000029c6c00 nid=0xb6edb000 in Object.wait() [00000000b6eda000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007b93250> (a java.util.TaskQueue)
+	at java.util.TimerThread.mainLoop(Timer.java:509)
+	- locked <0000000007b93250> (a java.util.TaskQueue)
+	at java.util.TimerThread.run(Timer.java:462)
+
+   Locked ownable synchronizers:
+	- None
+
+"server-timer" daemon prio=5 tid=00000000029c6000 nid=0xb6dd9000 in Object.wait() [00000000b6dd8000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007b92e40> (a java.util.TaskQueue)
+	at java.util.TimerThread.mainLoop(Timer.java:509)
+	- locked <0000000007b92e40> (a java.util.TaskQueue)
+	at java.util.TimerThread.run(Timer.java:462)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-0 (HornetQ-scheduled-threads-25135468)" prio=5 tid=00000000029bf800 nid=0xb6cd7000 runnable [00000000b6cd6000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007d2b618> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2025)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:164)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:609)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:602)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"hornetq-expiry-reaper-thread" prio=3 tid=0000000001afc800 nid=0xb6bd5000 in Object.wait() [00000000b6bd4000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007b5d6c8> (a org.hornetq.core.postoffice.impl.PostOfficeImpl$Reaper)
+	at org.hornetq.core.postoffice.impl.PostOfficeImpl$Reaper.run(PostOfficeImpl.java:1319)
+	- locked <0000000007b5d6c8> (a org.hornetq.core.postoffice.impl.PostOfficeImpl$Reaper)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"hornetq-buffer-timeout" prio=5 tid=00000000029bf000 nid=0xb6ad3000 waiting on condition [00000000b6ad2000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007ace5d0> (a java.util.concurrent.Semaphore$NonfairSync)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:811)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:969)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1281)
+	at java.util.concurrent.Semaphore.acquire(Semaphore.java:286)
+	at org.hornetq.core.journal.impl.TimedBuffer$CheckTimer.run(TimedBuffer.java:438)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Periodic Recovery" prio=5 tid=00000000029bd000 nid=0xb69d1000 in Object.wait() [00000000b69d0000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007b6d9f0> (a java.lang.Object)
+	at com.arjuna.ats.internal.arjuna.recovery.PeriodicRecovery.doPeriodicWait(PeriodicRecovery.java:672)
+	at com.arjuna.ats.internal.arjuna.recovery.PeriodicRecovery.run(PeriodicRecovery.java:392)
+	- locked <0000000007b6d9f0> (a java.lang.Object)
+
+   Locked ownable synchronizers:
+	- None
+
+"DeploymentScanner-threads - 2" prio=5 tid=00000000029bc800 nid=0xb68cf000 waiting on condition [00000000b68ce000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <00000000075bc760> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2025)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:164)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:609)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:602)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"DeploymentScanner-threads - 1" prio=5 tid=0000000001af9400 nid=0xb67cd000 waiting on condition [00000000b67cc000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <00000000075bc760> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2025)
+	at java.util.concurrent.DelayQueue.take(DelayQueue.java:164)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:609)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:602)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+   Locked ownable synchronizers:
+	- None
+
+"Transaction Expired Entry Monitor" daemon prio=5 tid=0000000001aea800 nid=0xb62c3000 in Object.wait() [00000000b62c2000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007b6d5c0> (a com.arjuna.ats.internal.arjuna.recovery.ExpiredEntryMonitor)
+	at com.arjuna.ats.internal.arjuna.recovery.ExpiredEntryMonitor.run(ExpiredEntryMonitor.java:190)
+	- locked <0000000007b6d5c0> (a com.arjuna.ats.internal.arjuna.recovery.ExpiredEntryMonitor)
+
+   Locked ownable synchronizers:
+	- None
+
+"RequestController-3" daemon prio=10 tid=0000000001af0000 nid=0xb66cb000 in Object.wait() [00000000b66ca000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007ac2510> (a java.lang.Object)
+	at java.lang.Object.wait(Object.java:485)
+	at org.jacorb.poa.RequestController.waitForQueue(RequestController.java:581)
+	- locked <0000000007ac2510> (a java.lang.Object)
+	at org.jacorb.poa.RequestController.run(RequestController.java:498)
+
+   Locked ownable synchronizers:
+	- None
+
+"AOMRemoval" daemon prio=5 tid=0000000001aef400 nid=0xb65c9000 waiting on condition [00000000b65c8000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007ac20b0> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at org.jacorb.poa.AOM$1.run(AOM.java:120)
+
+   Locked ownable synchronizers:
+	- None
+
+"RequestController-2" daemon prio=10 tid=0000000001aecc00 nid=0xb64c7000 in Object.wait() [00000000b64c6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007ac5708> (a java.lang.Object)
+	at java.lang.Object.wait(Object.java:485)
+	at org.jacorb.poa.RequestController.waitForQueue(RequestController.java:581)
+	- locked <0000000007ac5708> (a java.lang.Object)
+	at org.jacorb.poa.RequestController.run(RequestController.java:498)
+
+   Locked ownable synchronizers:
+	- None
+
+"AOMRemoval" daemon prio=5 tid=0000000001aeb400 nid=0xb63c5000 waiting on condition [00000000b63c4000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007ac52a8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at org.jacorb.poa.AOM$1.run(AOM.java:120)
+
+   Locked ownable synchronizers:
+	- None
+
+"ServerSocketListener" daemon prio=5 tid=0000000001acb000 nid=0xb61c1000 runnable [00000000b61c0000]
+   java.lang.Thread.State: RUNNABLE
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:390)
+	- locked <0000000007abd628> (a java.net.SocksSocketImpl)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:453)
+	at java.net.ServerSocket.accept(ServerSocket.java:421)
+	at org.jacorb.orb.iiop.IIOPListener$Acceptor.run(IIOPListener.java:467)
+
+   Locked ownable synchronizers:
+	- None
+
+"RequestController-1" daemon prio=10 tid=00000000029a7800 nid=0xb60bf000 in Object.wait() [00000000b60be000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007cb7478> (a java.lang.Object)
+	at java.lang.Object.wait(Object.java:485)
+	at org.jacorb.poa.RequestController.waitForQueue(RequestController.java:581)
+	- locked <0000000007cb7478> (a java.lang.Object)
+	at org.jacorb.poa.RequestController.run(RequestController.java:498)
+
+   Locked ownable synchronizers:
+	- None
+
+"AOMRemoval" daemon prio=5 tid=00000000029a6c00 nid=0xb5fbd000 waiting on condition [00000000b5fbc000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007cb74d8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at org.jacorb.poa.AOM$1.run(AOM.java:120)
+
+   Locked ownable synchronizers:
+	- None
+
+"ORB Run Thread" prio=5 tid=00000000019e6c00 nid=0xb5ebb000 in Object.wait() [00000000b5eba000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <000000000778e5b0> (a java.lang.Object)
+	at java.lang.Object.wait(Object.java:485)
+	at org.jacorb.orb.ORB.run(ORB.java:1417)
+	- locked <000000000778e5b0> (a java.lang.Object)
+	at org.jboss.as.jacorb.service.CorbaORBService$ORBRunner.run(CorbaORBService.java:213)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"http-localhost-127.0.0.1-8080-Acceptor-0" daemon prio=5 tid=000000000299e000 nid=0xb5db9000 runnable [00000000b5db8000]
+   java.lang.Thread.State: RUNNABLE
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:390)
+	- locked <0000000007cb7578> (a java.net.SocksSocketImpl)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:453)
+	at java.net.ServerSocket.accept(ServerSocket.java:421)
+	at org.apache.tomcat.util.net.DefaultServerSocketFactory.acceptSocket(DefaultServerSocketFactory.java:61)
+	at org.apache.tomcat.util.net.JIoEndpoint$Acceptor.run(JIoEndpoint.java:321)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"http-localhost-127.0.0.1-8080-Poller" daemon prio=5 tid=0000000002983400 nid=0xb5cb7000 in Object.wait() [00000000b5cb6000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007d53d18> (a org.apache.tomcat.util.net.JIoEndpoint$Poller)
+	at org.apache.tomcat.util.net.JIoEndpoint$Poller.run(JIoEndpoint.java:742)
+	- locked <0000000007d53d18> (a org.apache.tomcat.util.net.JIoEndpoint$Poller)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Timer-0" prio=5 tid=000000000297a400 nid=0xb5bb5000 in Object.wait() [00000000b5bb4000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <00000000078b3758> (a java.util.TaskQueue)
+	at java.lang.Object.wait(Object.java:485)
+	at java.util.TimerThread.mainLoop(Timer.java:483)
+	- locked <00000000078b3758> (a java.util.TaskQueue)
+	at java.util.TimerThread.run(Timer.java:462)
+
+   Locked ownable synchronizers:
+	- None
+
+"ContainerBackgroundProcessor[StandardEngine[jboss.web]]" daemon prio=5 tid=0000000002973800 nid=0xb5ab3000 waiting on condition [00000000b5ab2000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep(Native Method)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1579)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"IdleRemover" daemon prio=5 tid=0000000002883c00 nid=0xb59b1000 waiting on condition [00000000b59b0000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0000000007759120> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2116)
+	at org.jboss.jca.core.connectionmanager.pool.idle.IdleRemover$IdleRemoverRunner.run(IdleRemover.java:261)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- <000000000785e180> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+
+"ConnectionValidator" daemon prio=5 tid=0000000001a38800 nid=0xb58af000 waiting on condition [00000000b58ae000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <000000000775f090> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:198)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2116)
+	at org.jboss.jca.core.connectionmanager.pool.validator.ConnectionValidator$ConnectionValidatorRunner.run(ConnectionValidator.java:263)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- <000000000785e048> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+
+"Remoting "beve-7719" write-1" prio=5 tid=0000000001a13c00 nid=0xb57ad000 runnable [00000000b57ac000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:136)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:69)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:69)
+	- locked <0000000007766780> (a sun.nio.ch.Util$1)
+	- locked <0000000007766790> (a java.util.Collections$UnmodifiableSet)
+	- locked <000000000776ec90> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:80)
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:157)
+
+   Locked ownable synchronizers:
+	- None
+
+"Remoting "beve-7719" read-1" prio=5 tid=00000000028cc800 nid=0xb56ab000 waiting for monitor entry [00000000b56aa000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at org.xnio.streams.BufferPipeOutputStream.close(BufferPipeOutputStream.java:156)
+	- waiting to lock <0000000005697300> (a org.xnio.streams.BufferPipeOutputStream)
+	at org.xnio.IoUtils.safeClose(IoUtils.java:137)
+	at org.jboss.remoting3.remote.OutboundMessage.closeAsync(OutboundMessage.java:158)
+	at org.jboss.remoting3.remote.RemoteConnectionChannel.handleAsyncClose(RemoteConnectionChannel.java:502)
+	at org.jboss.remoting3.remote.RemoteReadListener.handleEvent(RemoteReadListener.java:259)
+	at org.jboss.remoting3.remote.RemoteReadListener.handleEvent(RemoteReadListener.java:45)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:72)
+	at org.xnio.channels.TranslatingSuspendableChannel.handleReadable(TranslatingSuspendableChannel.java:189)
+	at org.xnio.channels.TranslatingSuspendableChannel$1.handleEvent(TranslatingSuspendableChannel.java:103)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:72)
+	at org.xnio.nio.NioHandle.run(NioHandle.java:90)
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:184)
+
+   Locked ownable synchronizers:
+	- None
+
+"Remoting "beve-7719:MANAGEMENT" write-1" prio=5 tid=0000000002901400 nid=0xb386f000 runnable [00000000b386e000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:136)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:69)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:69)
+	- locked <00000000075a1180> (a sun.nio.ch.Util$1)
+	- locked <00000000075a1170> (a java.util.Collections$UnmodifiableSet)
+	- locked <00000000075a0f80> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:80)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:84)
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:153)
+
+   Locked ownable synchronizers:
+	- None
+
+"Remoting "beve-7719:MANAGEMENT" read-1" prio=5 tid=00000000028fd400 nid=0xb376d000 runnable [00000000b376c000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:136)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:69)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:69)
+	- locked <0000000007656320> (a sun.nio.ch.Util$1)
+	- locked <0000000007656310> (a java.util.Collections$UnmodifiableSet)
+	- locked <0000000007656278> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:80)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:84)
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:153)
+
+   Locked ownable synchronizers:
+	- None
+
+"DestroyJavaVM" prio=5 tid=00000000028ae800 nid=0xb0101000 waiting on condition [0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Poller SunPKCS11-Darwin" daemon prio=1 tid=00000000019cb000 nid=0xb162d000 waiting on condition [00000000b162c000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep(Native Method)
+	at sun.security.pkcs11.SunPKCS11$TokenPoller.run(SunPKCS11.java:692)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"MSC service thread 1-4" prio=5 tid=00000000019c7400 nid=0xb152b000 waiting on condition [00000000b152a000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <00000000073a07f8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"MSC service thread 1-3" prio=5 tid=00000000019c6400 nid=0xb1429000 waiting on condition [00000000b1428000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <00000000073a07f8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"MSC service thread 1-2" prio=5 tid=0000000002818400 nid=0xb1327000 waiting on condition [00000000b1326000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <00000000073a07f8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"MSC service thread 1-1" prio=5 tid=00000000019c5000 nid=0xb1225000 waiting on condition [00000000b1224000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <00000000073a07f8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1987)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:399)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:947)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:907)
+	at java.lang.Thread.run(Thread.java:680)
+
+   Locked ownable synchronizers:
+	- None
+
+"Reference Reaper" daemon prio=5 tid=0000000001934800 nid=0xb1123000 in Object.wait() [00000000b1122000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <00000000070bec38> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:118)
+	- locked <00000000070bec38> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:134)
+	at org.jboss.modules.ref.References$ReaperThread.run(References.java:68)
+
+   Locked ownable synchronizers:
+	- None
+
+"Low Memory Detector" daemon prio=5 tid=0000000002818800 nid=0xb0f1f000 runnable [0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"CompilerThread0" daemon prio=9 tid=000000000281a000 nid=0xb0e1d000 waiting on condition [0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"JDWP Event Helper Thread" daemon prio=5 tid=00000000018a8c00 nid=0xb0d1b000 runnable [0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"JDWP Transport Listener: dt_socket" daemon prio=5 tid=0000000002819000 nid=0xb0c19000 runnable [0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Signal Dispatcher" daemon prio=9 tid=0000000002816800 nid=0xb0b17000 runnable [0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Surrogate Locker Thread (CMS)" daemon prio=5 tid=0000000002815800 nid=0xb0a15000 waiting on condition [0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Finalizer" daemon prio=8 tid=00000000018a0000 nid=0xb080f000 in Object.wait() [00000000b080e000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <00000000070d75e8> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:118)
+	- locked <00000000070d75e8> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:134)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:159)
+
+   Locked ownable synchronizers:
+	- None
+
+"Reference Handler" daemon prio=10 tid=000000000189f000 nid=0xb070d000 in Object.wait() [00000000b070c000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0000000007010010> (a java.lang.ref.Reference$Lock)
+	at java.lang.Object.wait(Object.java:485)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:116)
+	- locked <0000000007010010> (a java.lang.ref.Reference$Lock)
+
+   Locked ownable synchronizers:
+	- None
+
+"VM Thread" prio=9 tid=0000000002811000 nid=0xb060b000 runnable 
+
+"Gang worker#0 (Parallel GC Threads)" prio=9 tid=0000000001803400 nid=0xb0305000 runnable 
+
+"Gang worker#1 (Parallel GC Threads)" prio=9 tid=0000000001804400 nid=0xb0407000 runnable 
+
+"Concurrent Mark-Sweep GC Thread" prio=9 tid=000000000186f000 nid=0xb0509000 runnable 
+"VM Periodic Task Thread" prio=10 tid=0000000002824000 nid=0xb1021000 waiting on condition 
+
+"Exception Catcher Thread" prio=10 tid=0000000001802400 nid=0xb0203000 runnable 
+JNI global references: 10746
+

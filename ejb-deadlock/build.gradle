@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+buildDir = 'target'
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+    compile "org.jboss.as:jboss-as-ejb-client-bom:7.1.1.Final"
+	testCompile fileTree(dir: 'lib', include: 'byteman.jar')
+    testCompile 'junit:junit:4.8.1'
+}
+
+repositories {
+    mavenRepo urls: ['https://repository.jboss.org/nexus/content/groups/public/']
+}
+
+task exec << {
+	javaexec {
+		jvmArgs '-javaagent:lib/byteman.jar=script:src/test/resources/customer-bean-client.btm'
+		classpath sourceSets.test.runtimeClasspath + sourceSets.main.runtimeClasspath
+		setMain 'se.rl.deadlock.CustomerBeanClient'
+	}
+}
+exec.dependsOn testClasses
+
+task wrapper(type: Wrapper) {
+    group = 'Buildmaster'
+    description = "Generates gradlew and gradlew.bat bootstrap scripts"
+    gradleVersion = '1.0-milestone-6'
+    jarFile = 'wrapper/gradle-wrapper.jar'
+}

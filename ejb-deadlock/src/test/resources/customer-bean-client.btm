@@ -1,0 +1,9 @@
+# Attempts to simulates a client taking time unserializing a large object
+# graph and finally throwing a ClassNotFoundException.
+RULE Sleep in loadClass()
+CLASS org.jboss.marshalling.river.RiverUnmarshaller
+METHOD doReadClassDescriptor
+IF true
+DO traceln("[RiverUnmarshaller] Going to throw ClassNotFFoundException");
+    throw new ClassNotFoundException("Simulating ClassNotFoundException");
+ENDRULE
