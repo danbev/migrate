@@ -14,9 +14,8 @@ public class CustomerBean implements CustomerLocal, CustomerRemote {
     }
     
     private Date[] createLargeArray(final int size) {
-        final int nr = 100000;
-        final Date[] dates = new Date[nr];
-        for (int i = 0 ; i < nr; i++) {
+        final Date[] dates = new Date[size];
+        for (int i = 0 ; i < size; i++) {
             dates[i] = new Date();
         }
         return dates;

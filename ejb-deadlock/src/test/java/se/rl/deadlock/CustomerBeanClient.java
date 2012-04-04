@@ -30,7 +30,7 @@ public class CustomerBeanClient {
         System.out.println(response);
     }
     
-    private static void setEJBClientContext() {
+    private static Properties ejbContextProperties() {
         final Properties properties = new Properties();
         properties.put("endpoint.name", "client-endpoint");
         properties.put("remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED", "false");
@@ -42,7 +42,11 @@ public class CustomerBeanClient {
         properties.put("remote.connection.default.password", "password");
         //properties.put("remote.connection.default.channel.options.org.jboss.remoting3.RemotingOptions.TRANSMIT_WINDOW_SIZE", "2147483647");
         //properties.put("remote.connection.default.channel.options.org.jboss.remoting3.RemotingOptions.RECEIVE_WINDOW_SIZE", "2147483647");
-        final EJBClientConfiguration config = new PropertiesBasedEJBClientConfiguration(properties);
+        return properties;
+    }
+    
+    private static void setEJBClientContext() {
+        final EJBClientConfiguration config = new PropertiesBasedEJBClientConfiguration(ejbContextProperties());
         final ConfigBasedEJBClientContextSelector selector = new ConfigBasedEJBClientContextSelector(config);
         EJBClientContext.setSelector(selector);
     }

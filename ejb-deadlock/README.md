@@ -12,7 +12,11 @@ Can be found in 'thread-dump.txt'
 
 # Building
 
-    gradle build 
+    ./gradlew build 
+    
+    or if using maven:
+    
+    mvn install
 
 # Installing to AS7
 Copy target/lib/ejb-deadlock.jar to $AS7/standalone/deployments
@@ -20,14 +24,22 @@ Copy target/lib/ejb-deadlock.jar to $AS7/standalone/deployments
 # Running the client
 To run the client manually from Eclipse simply run:
 
-    gradle exec
+    ./gradlew exec
+    
+    or if using maven:
+    
+    export MAVEN_OPTS=-javaagent:lib/byteman.jar=script:src/test/resources/customer-bean-client.btm
+    mvn exec:java
 
 This will run se.rl.deadlock.CustomerBeanClient which can also be called from within and IDE but will
 require following VM argument need to be given: 
 
     -javaagent:lib/byteman.jar=script:src/test/resources/customer-bean-client.btm
     
-# Generateing a thread dump
+Note that when importing into Eclipse use mvn eclipse:eclipse instead of importing the project as an existing
+maven project as something is not right with the dependencies when importing using the eclipse plugin.
+    
+# Generating a thread dump
 
     jstack -l 61276 > thread-dump.txt
 
